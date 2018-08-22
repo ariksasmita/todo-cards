@@ -45,7 +45,7 @@ class TodoApp extends React.Component {
     const renderCards = () => {
       return todos.map(todo => {
         return (
-          <TodoCard key={todo.id} todos={todo} />
+          <TodoCard key={todo.id} card={todo} />
         )
       })
     }

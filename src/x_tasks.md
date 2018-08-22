@@ -1,5 +1,4 @@
-<!--
-Features:
+#Features:
 * Each task lists act as a card
 * Swipeable cards
 * Big checkboxes (might) that turns grey once completed
@@ -8,11 +7,12 @@ Features:
 * Search for items
 * Timestamps
 
-Bugs:
+#Bugs:
 None yet :p
 
-Steps:
+#Steps:
 ✅ Setup states, structures, defaultProps
+🔳 Add initial test framework -- *NOW*
 🔳 Func. to add item
 🔳 Func. to toggle item
 🔳 Func, to show/hide completed
@@ -21,4 +21,3 @@ Steps:
 🔳 Wire up add item to local storeage
 🔳 (Optional) add some firebase hook (?)
 🔳 Make it phreetheee and shyneee ✨
--->

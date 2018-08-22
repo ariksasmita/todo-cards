@@ -5,16 +5,16 @@ import TodoList from './TodoList'
 
 class TodoCard extends React.Component {
   static propTypes = {
-    todos: PropTypes.object,
+    card: PropTypes.object,
   }
   static defaultProps = {
-    todos: [],
+    card: [],
   }
   render() {
     const { 
       title,
       items,
-    } = this.props.todos
+    } = this.props.card
     return (
       <div>
         <h3>{ title }</h3>

@@ -13,7 +13,6 @@ class TodoList extends React.Component {
   render() {
     const { todos } = this.props
     const renderTodos = () => {
-      console.log(todos)
       return todos.map(todo => {
         return <Todo key={todo.id} {...todo} />
       })
