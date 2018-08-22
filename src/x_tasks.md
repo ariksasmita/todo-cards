@@ -12,9 +12,13 @@ None yet :p
 
 #Steps:
 ✅ Setup states, structures, defaultProps
-🔳 Add initial test framework -- *NOW*
+✅ Add initial test framework
 🔳 Func. to add item
-🔳 Func. to toggle item
+✅ Func. to toggle item -- *NOW*
+    * File `components/Todo.js`
+    * Try to pass down toggle method using Context API
+    * Cool and all, but need to pass card and item ID 🤔
+      * Need to pass it on each level, Card and Item 🤦
 🔳 Func, to show/hide completed
 🔳 Func. to search item
 🔳 Wire uo timestamps data

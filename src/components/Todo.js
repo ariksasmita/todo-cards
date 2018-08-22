@@ -1,18 +1,29 @@
 import React from 'react'
-  import PropTypes from 'prop-types'
+import PropTypes from 'prop-types'
 
 class Todo extends React.Component {
   static propTypes = {
-    todo: PropTypes.object.isRequired,
+    id: PropTypes.number,
+    text: PropTypes.string,
+    completed: PropTypes.bool,
+    onItemChange: PropTypes.func.isRequired,
   }
   static defaultProps = {
-    todo: {},
+    id: 1,
+    text: '',
+    completed: false,
   }
   render() {
-    const { id, text } = this.props
+    const {
+      id,
+      text,
+      completed,
+      onItemChange,
+    } = this.props
+
     return (
       <li className="card-item_list-item">
-        <input type="checkbox" />
+        <input type="checkbox" value={ id } defaultChecked={ completed } onChange={ onItemChange }/>
         <span>
           {id}: {text}
         </span>

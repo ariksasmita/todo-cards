@@ -1,7 +1,7 @@
 import React from 'react'
 
-import TodoList from './TodoList'
 import TodoCard from './TodoCard'
+import AddTodo from './AddTodo'
 
 class TodoApp extends React.Component {
   state = {
@@ -13,7 +13,7 @@ class TodoApp extends React.Component {
           {
             id: 1,
             text: 'Some todo item',
-            completed: false,
+            completed: true,
           },
           {
             id: 3,
@@ -34,25 +34,44 @@ class TodoApp extends React.Component {
           {
             id: 3,
             text: 'Also some more todo item',
-            completed: true,
+            completed: false,
           },
         ],
       },
     ],
   }
+  toggleItem = (cardId, itemId) => {
+    const { todos } = this.state
+    const updatedTodos = todos.map(todo => {
+      if(todo.id === cardId) {
+        todo.items.map(item => {
+          if(item.id === itemId) {
+            item.completed = !item.completed
+          }
+          return item
+        })
+      }
+      return todo
+    })
+    this.setState({
+      todos: updatedTodos
+    })
+  }
   render() {
+    const { toggleItem } = this
     const { todos } = this.state
     const renderCards = () => {
       return todos.map(todo => {
         return (
-          <TodoCard key={todo.id} card={todo} />
+          <TodoCard key={todo.id} onCardChange={toggleItem} card={todo} />
         )
       })
     }
 
     return (
       <div className="container">
-         { renderCards() }
+        <AddTodo />
+        { renderCards() }
       </div>
     )
   }

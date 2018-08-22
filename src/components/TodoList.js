@@ -6,15 +6,19 @@ import Todo from './Todo'
 class TodoList extends React.Component {
   static propTypes = {
     todos: PropTypes.array,
+    onItemChange: PropTypes.func.isRequired,
   }
   static defaultProps = {
     todos: {},
   }
   render() {
-    const { todos } = this.props
+    const { 
+      todos,
+      onItemChange,
+    } = this.props
     const renderTodos = () => {
       return todos.map(todo => {
-        return <Todo key={todo.id} {...todo} />
+        return <Todo onItemChange={onItemChange} key={todo.id} {...todo} />
       })
     }
 

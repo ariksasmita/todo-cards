@@ -6,19 +6,35 @@ import TodoList from './TodoList'
 class TodoCard extends React.Component {
   static propTypes = {
     card: PropTypes.object,
+    onCardChange: PropTypes.func.isRequired,
   }
   static defaultProps = {
     card: [],
   }
-  render() {
+  handleItemChange = (e) => {
     const { 
-      title,
-      items,
-    } = this.props.card
+      card,
+      onCardChange,
+    } = this.props
+    const itemId = parseInt(e.target.getAttribute('value'), 10)
+    if(card.id && itemId) {
+      onCardChange(card.id, itemId)
+    }
+  }
+  render() {
+    const {
+      card: {
+        title,
+        items,
+      },
+    } = this.props
+    const {
+      handleItemChange,
+    } = this
     return (
       <div>
         <h3>{ title }</h3>
-        <TodoList todos={ items } />
+        <TodoList todos={ items } onItemChange={ handleItemChange }/>
       </div>
     )
   }
