@@ -20,7 +20,8 @@ None yet :p
     * Cool and all, but need to pass card and item ID 🤔
       * Need to pass it on each level, Card and Item 🤦
     ✅ Test file!
-     ✅ mock values and setup function -- *NOW*
+     ✅ mock values and setup function
+🔳 Move Todo mock data to an API -- *NOW*
 🔳 Func, to show/hide completed
     * Use Array.filter function
     * Prev. proj. sample: TodoAPI.jsx

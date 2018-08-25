@@ -1,44 +1,19 @@
 import React from 'react'
 
+import { mockTodos, filterByState } from '../api/TodoAPI'
+
 import TodoCard from './TodoCard'
 import AddTodo from './AddTodo'
 
 class TodoApp extends React.Component {
   state = {
-    todos: [
-      {
-        id: 1,
-        title: 'Todo Title',
-        items: [
-          {
-            id: 1,
-            text: 'Some todo item',
-            completed: true,
-          },
-          {
-            id: 3,
-            text: 'And some more todo item',
-            completed: true,
-          },
-        ],
-      },
-      {
-        id: 2,
-        title: 'Second Todo Title',
-        items: [
-          {
-            id: 1,
-            text: 'Is some todo item',
-            completed: true,
-          },
-          {
-            id: 3,
-            text: 'Also some more todo item',
-            completed: false,
-          },
-        ],
-      },
-    ],
+    todos: [],
+    showHidden: false,
+  }
+  componentWillMount() {
+    this.setState({
+      todos: mockTodos,
+    })
   }
   toggleItem = (cardId, itemId) => {
     const { todos } = this.state
@@ -58,12 +33,16 @@ class TodoApp extends React.Component {
     })
   }
   render() {
+    const { 
+      todos,
+      showHidden,
+    } = this.state
     const { toggleItem } = this
-    const { todos } = this.state
+    const filteredCards = filterByState(todos, showHidden)
     const renderCards = () => {
-      return todos.map(todo => {
+      return filteredCards.map(card => {
         return (
-          <TodoCard key={todo.id} onCardChange={toggleItem} card={todo} />
+          <TodoCard key={card.id} onCardChange={toggleItem} card={card} />
         )
       })
     }

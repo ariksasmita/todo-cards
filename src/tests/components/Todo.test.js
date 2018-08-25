@@ -6,6 +6,7 @@ import Todo from '../../components/Todo'
 
 describe('Todo', () => {
   it('renders without error', () => {
-    shallow(<Todo />)
+    const onItemChange = jest.fn()
+    shallow(<Todo onItemChange={ onItemChange } />)
   })
 })
