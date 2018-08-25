@@ -9,7 +9,7 @@ class TodoCard extends React.Component {
     onCardChange: PropTypes.func.isRequired,
   }
   static defaultProps = {
-    card: [],
+    card: {},
   }
   handleItemChange = (e) => {
     const { 

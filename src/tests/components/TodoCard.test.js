@@ -1,8 +1,16 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { shallow } from 'enzyme'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 
-import TodoCard from '../../components/TodoCard'
+import TodoCard from '../../components/TodoCard';
+
+const setup = (props, onChange) => {
+  const wrapper = shallow(<TodoCard onCardChange={onChange} {...props} />);
+  return {
+    wrapper,
+    props,
+  };
+};
 
 const mockCard = {
   id: 1,
@@ -19,10 +27,17 @@ const mockCard = {
       completed: true,
     },
   ],
-}
+};
+
+const mergeWithRequiredProps = props => Object.assign(
+  mockCard,
+  props,
+);
 
 describe('TodoCard', () => {
   it('renders without error', () => {
-    shallow(<TodoCard card={mockCard} />)
-  })
-})
+    const onCardChange = jest.fn()
+    const { wrapper, props } = setup(mergeWithRequiredProps(), onCardChange);
+    shallow(<TodoCard card={props} onCardChange={onCardChange} />);
+  });
+});

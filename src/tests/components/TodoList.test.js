@@ -19,6 +19,7 @@ const mockTodos = [
 
 describe('TodoList', () => {
   it('renders without error', () => {
-    shallow(<TodoList todos={ mockTodos } />)
+    const onItemChange = jest.fn()
+    shallow(<TodoList todos={ mockTodos } onItemChange={ onItemChange } />)
   })
 })

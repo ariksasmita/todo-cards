@@ -9,7 +9,7 @@ class TodoList extends React.Component {
     onItemChange: PropTypes.func.isRequired,
   }
   static defaultProps = {
-    todos: {},
+    todos: [],
   }
   render() {
     const { 
