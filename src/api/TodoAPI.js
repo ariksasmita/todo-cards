@@ -33,14 +33,14 @@ const mockTodos = [
   },
 ]
 
-const filterByState = (cards, showHidden = false) => {
+const filterByState = (cards, showCompleted = false) => {
 	var filteredCards = []
   Array.from(cards).forEach(card => {
-  	if (card.items.some(item => !item.completed || showHidden)) {
+  	if (card.items.some(item => !item.completed || showCompleted)) {
     	filteredCards.push({
       	id: card.id,
         title: card.title,
-        items: card.items.filter(item => !item.completed || showHidden),
+        items: card.items.filter(item => !item.completed || showCompleted),
       })
     }
   })

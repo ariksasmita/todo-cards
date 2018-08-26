@@ -3,12 +3,13 @@ import React from 'react'
 import { mockTodos, filterByState } from '../api/TodoAPI'
 
 import TodoCard from './TodoCard'
-import AddTodo from './AddTodo'
+import AddCard from './AddCard'
+import SearchTodo from './SearchTodo'
 
 class TodoApp extends React.Component {
   state = {
     todos: [],
-    showHidden: false,
+    showCompleted: true,
   }
   componentWillMount() {
     this.setState({
@@ -32,13 +33,21 @@ class TodoApp extends React.Component {
       todos: updatedTodos
     })
   }
+  toggleCompletedDisplay = status => {
+    this.setState({
+      showCompleted: status,
+    })
+  }
   render() {
-    const { 
+    const {
       todos,
-      showHidden,
+      showCompleted,
     } = this.state
-    const { toggleItem } = this
-    const filteredCards = filterByState(todos, showHidden)
+    const {
+      toggleItem,
+      toggleCompletedDisplay,
+    } = this
+    const filteredCards = filterByState(todos, showCompleted)
     const renderCards = () => {
       return filteredCards.map(card => {
         return (
@@ -49,7 +58,8 @@ class TodoApp extends React.Component {
 
     return (
       <div className="container">
-        <AddTodo />
+        <AddCard />
+        <SearchTodo toggleCompletedDisplay={ toggleCompletedDisplay } />
         { renderCards() }
       </div>
     )
