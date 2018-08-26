@@ -13,7 +13,8 @@ None yet :p
 #Steps:
 ✅ Setup states, structures, defaultProps
 ✅ Add initial test framework
-🔳 Func. to add item -- *NOW*
+🔳 Func. to add item
+    * Testing! **NOW**
 ✅ Func. to toggle item
     * File `components/Todo.js`
     * Try to pass down toggle method using Context API
@@ -28,7 +29,7 @@ None yet :p
     * Adding toggle in search module
     * Test case
     * ~~Separate API and Selectors~~ -- can ignore for now
-    * **BUG** Newly added items not affected
+    * **BUGFIXED** Newly added items not affected
 🔳 Func. to search item
 🔳 Wire up timestamps data
 🔳 Wire up add item to local storeage

@@ -28,6 +28,7 @@ class AddCard extends React.Component {
     const {
       onHoistCard,
     } = this.props
+    const { resetState } = this
     if (!!title && !!items) {
       const newCard = {
         id: uuid(),
@@ -35,7 +36,14 @@ class AddCard extends React.Component {
         items,
       }
       onHoistCard(newCard)
+      resetState()
     }
+  }
+  resetState = () => {
+    this.setState({
+      title: '',
+      items: [],
+    })
   }
   render() {
     const {
