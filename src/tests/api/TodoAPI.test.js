@@ -12,32 +12,32 @@ const setup = () => {
 
 const mockCards = [
   {
-    id: 1,
+    id: '1',
     title: 'First title',
     items: [
       {
-        id: 1,
+        id: '1',
         text: 'some todo',
         completed: false,
       },
       {
-        id: 2,
+        id: '2',
         text: 'another todo',
         completed: true,
       },
     ],
   },
   {
-    id: 2,
+    id: '2',
     title: 'Second title',
     items: [
       {
-        id: 12,
+        id: '12',
         text: 'some todo',
         completed: false,
       },
       {
-        id: 13,
+        id: '13',
         text: 'another todo',
         completed: false,
       },

@@ -22,7 +22,7 @@ describe('TodoApp', () => {
   it('toggle item status on handleItemChange', () => {
     const { wrapper } = setup()
     const instance = wrapper.instance()
-    instance.toggleItem(1, 1)
+    instance.toggleItem('1', '1')
     expect(instance.state.todos[0].items[0].completed).toBe(false)
   });
 })

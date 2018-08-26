@@ -38,12 +38,20 @@ class TodoApp extends React.Component {
       showCompleted: status,
     })
   }
+  addNewCard = (card) => {
+    const { todos } = this.state
+    todos.push(card)
+    this.setState({
+      todos,
+    })
+  }
   render() {
     const {
       todos,
       showCompleted,
     } = this.state
     const {
+      addNewCard,
       toggleItem,
       toggleCompletedDisplay,
     } = this
@@ -58,8 +66,10 @@ class TodoApp extends React.Component {
 
     return (
       <div className="container">
-        <AddCard />
-        <SearchTodo toggleCompletedDisplay={ toggleCompletedDisplay } />
+        <AddCard onHoistCard={ addNewCard } />
+        <SearchTodo
+          showCompleted={ showCompleted }
+          toggleCompletedDisplay={ toggleCompletedDisplay } />
         { renderCards() }
       </div>
     )

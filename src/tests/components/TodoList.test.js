@@ -6,12 +6,12 @@ import TodoList from '../../components/TodoList'
 
 const mockTodos = [
   {
-    id: 1,
+    id: '1',
     text: 'Some todo item',
     completed: false,
   },
   {
-    id: 3,
+    id: '3',
     text: 'And some more todo item',
     completed: true,
   },

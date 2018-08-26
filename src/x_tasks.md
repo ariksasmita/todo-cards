@@ -13,7 +13,7 @@ None yet :p
 #Steps:
 ✅ Setup states, structures, defaultProps
 ✅ Add initial test framework
-🔳 Func. to add item
+🔳 Func. to add item -- *NOW*
 ✅ Func. to toggle item
     * File `components/Todo.js`
     * Try to pass down toggle method using Context API
@@ -26,7 +26,7 @@ None yet :p
     * Use Array.filter function
     * Prev. proj. sample: TodoAPI.jsx
     * Adding toggle in search module
-    * Test case -- *NOW*
+    * Test case
     * ~~Separate API and Selectors~~ -- can ignore for now
 🔳 Func. to search item
 🔳 Wire up timestamps data

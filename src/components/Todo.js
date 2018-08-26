@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 
 class Todo extends React.Component {
   static propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     text: PropTypes.string,
     completed: PropTypes.bool,
     onItemChange: PropTypes.func.isRequired,
   }
   static defaultProps = {
-    id: 1,
+    id: '',
     text: '',
     completed: false,
   }
