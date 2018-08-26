@@ -27,7 +27,7 @@ None yet :p
     * Prev. proj. sample: TodoAPI.jsx
     * Adding toggle in search module
     * Test case -- *NOW*
-    * Separate API and Selectors
+    * ~~Separate API and Selectors~~ -- can ignore for now
 🔳 Func. to search item
 🔳 Wire up timestamps data
 🔳 Wire up add item to local storeage
