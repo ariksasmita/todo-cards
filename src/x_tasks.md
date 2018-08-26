@@ -28,6 +28,7 @@ None yet :p
     * Adding toggle in search module
     * Test case
     * ~~Separate API and Selectors~~ -- can ignore for now
+    * **BUG** Newly added items not affected
 🔳 Func. to search item
 🔳 Wire up timestamps data
 🔳 Wire up add item to local storeage

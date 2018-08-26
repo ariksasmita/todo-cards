@@ -16,8 +16,8 @@ class TodoCard extends React.Component {
       card,
       onCardChange,
     } = this.props
-    const itemId = parseInt(e.target.getAttribute('value'), 10)
-    if(card.id && itemId) {
+    const itemId = e.target.getAttribute('value')
+    if(!!card.id && !!itemId) {
       onCardChange(card.id, itemId)
     }
   }
