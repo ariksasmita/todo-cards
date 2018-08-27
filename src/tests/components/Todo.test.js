@@ -4,9 +4,24 @@ import { shallow } from 'enzyme'
 
 import Todo from '../../components/Todo'
 
+const setup = () => {
+  const props = {
+    onItemChange: jest.fn(),
+  }
+  const wrapper = shallow(<Todo { ...props }/>)
+  return {
+    wrapper,
+    props,
+  }
+}
+
 describe('Todo', () => {
   it('renders without error', () => {
-    const onItemChange = jest.fn()
-    shallow(<Todo onItemChange={ onItemChange } />)
+    setup()
+  })
+  it('triggers onItemChange upon checkbox click', () => {
+    const { wrapper, props: { onItemChange } } = setup()
+    wrapper.find('input').simulate('change')
+    expect(onItemChange).toHaveBeenCalled()
   })
 })

@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import uuid from 'uuid'
 
 import AddTodo from './AddTodo'
@@ -7,6 +8,9 @@ class AddCard extends React.Component {
   state = {
     title: '',
     items: [],
+  }
+  static propTypes = {
+    onHoistCard: PropTypes.func.isRequired,
   }
   handleOnChange = () => {
     this.setState({

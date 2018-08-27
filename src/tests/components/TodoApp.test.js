@@ -5,11 +5,11 @@ import { shallow } from 'enzyme'
 import TodoApp from '../../components/TodoApp'
 
 const setup = () => {
-  const wrapper = shallow(<TodoApp />);
+  const wrapper = shallow(<TodoApp />)
   return {
     wrapper,
-  };
-};
+  }
+}
 
 /* TODO:
  * When API done, update this with mocked cards data
