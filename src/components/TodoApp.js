@@ -1,4 +1,5 @@
 import React from 'react'
+import update from 'immutability-helper'
 
 import { mockTodos, filterByState } from '../api/TodoAPI'
 
@@ -43,6 +44,19 @@ class TodoApp extends React.Component {
     todos.push(card)
     this.setState({
       todos,
+    })
+  }
+  addNewTodo = (cardId, item) => {
+    const { todos } = this.state
+    Array.from(todos).forEach(todo => {
+      if(todo.id === cardId) {
+        // find out how to update only targeted cardId
+        // see immutability helper above
+        this.setState({
+          ...todos,
+          todo
+        })
+      }
     })
   }
   render() {

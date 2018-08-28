@@ -21,13 +21,19 @@ class TodoList extends React.Component {
       showAddTodo: !showAddTodo,
     })
   }
+  addItem = (item) => {
+    console.log('item', item)
+  }
   render() {
     const { 
       todos,
       onItemChange,
     } = this.props
     const { showAddTodo } = this.state
-    const { onAddClick } = this
+    const { 
+      onAddClick,
+      addItem,
+    } = this
     const renderTodos = () => {
       return todos.map(todo => {
         return <Todo onItemChange={onItemChange} key={todo.id} {...todo} />
@@ -37,7 +43,7 @@ class TodoList extends React.Component {
     return (
       <div>
         <button onClick={ onAddClick }>[+]</button>
-        { showAddTodo && <AddTodo />}
+        { showAddTodo && <AddTodo onAddItem={ addItem } />}
         {renderTodos()}
       </div>
     ) 
