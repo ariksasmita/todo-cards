@@ -1,7 +1,6 @@
 import React from 'react'
-import update from 'immutability-helper'
 
-import { mockTodos, filterByState } from '../api/TodoAPI'
+import { mockCards, filterByState } from '../api/TodoAPI'
 
 import TodoCard from './TodoCard'
 import AddCard from './AddCard'
@@ -9,29 +8,29 @@ import SearchTodo from './SearchTodo'
 
 class TodoApp extends React.Component {
   state = {
-    todos: [],
+    cards: [],
     showCompleted: true,
   }
   componentWillMount() {
     this.setState({
-      todos: mockTodos,
+      cards: mockCards,
     })
   }
   toggleItem = (cardId, itemId) => {
-    const { todos } = this.state
-    const updatedTodos = todos.map(todo => {
-      if(todo.id === cardId) {
-        todo.items.map(item => {
+    const { cards } = this.state
+    const updatedCards = cards.map(card => {
+      if(card.id === cardId) {
+        card.items.map(item => {
           if(item.id === itemId) {
             item.completed = !item.completed
           }
           return item
         })
       }
-      return todo
+      return card
     })
     this.setState({
-      todos: updatedTodos
+      cards: updatedCards
     })
   }
   toggleCompletedDisplay = status => {
@@ -40,40 +39,44 @@ class TodoApp extends React.Component {
     })
   }
   addNewCard = (card) => {
-    const { todos } = this.state
-    todos.push(card)
+    const { cards } = this.state
+    cards.push(card)
     this.setState({
-      todos,
+      cards,
     })
   }
   addNewTodo = (cardId, item) => {
-    const { todos } = this.state
-    Array.from(todos).forEach(todo => {
-      if(todo.id === cardId) {
-        // find out how to update only targeted cardId
-        // see immutability helper above
-        this.setState({
-          ...todos,
-          todo
-        })
+    const { cards } = this.state
+    const newCards = cards
+    Array.from(newCards).forEach(todo => {
+      if (todo.id === cardId) {
+        todo.items.push(item)
       }
     })
+    this.setState(prevState => ({
+      cards: newCards
+    }))
   }
   render() {
     const {
-      todos,
+      cards,
       showCompleted,
     } = this.state
     const {
       addNewCard,
+      addNewTodo,
       toggleItem,
       toggleCompletedDisplay,
     } = this
-    const filteredCards = filterByState(todos, showCompleted)
+    const filteredCards = filterByState(cards, showCompleted)
     const renderCards = () => {
       return filteredCards.map(card => {
         return (
-          <TodoCard key={card.id} onCardChange={toggleItem} card={card} />
+          <TodoCard
+            key={card.id}
+            onCardChange={toggleItem}
+            onAddNewTodo={addNewTodo}
+            card={card} />
         )
       })
     }

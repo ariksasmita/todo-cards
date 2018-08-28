@@ -1,4 +1,4 @@
-const mockTodos = [
+const mockCards = [
   {
     id: '1',
     title: 'Todo Title',
@@ -48,6 +48,6 @@ const filterByState = (cards, showCompleted = false) => {
 }
 
 module.exports = {
-  mockTodos,
+  mockCards,
   filterByState,
 }

@@ -6,10 +6,13 @@ import AddTodo from './AddTodo'
 
 class TodoList extends React.Component {
   static propTypes = {
+    card: PropTypes.object,
     todos: PropTypes.array,
     onItemChange: PropTypes.func.isRequired,
+    onAddNewTodo: PropTypes.func.isRequired,
   }
   static defaultProps = {
+    card: {},
     todos: [],
   }
   state = {
@@ -22,11 +25,15 @@ class TodoList extends React.Component {
     })
   }
   addItem = (item) => {
-    console.log('item', item)
+    const { 
+      card: { id },
+      onAddNewTodo
+    } = this.props
+    onAddNewTodo(id, item)
   }
   render() {
     const { 
-      todos,
+      card,
       onItemChange,
     } = this.props
     const { showAddTodo } = this.state
@@ -35,7 +42,7 @@ class TodoList extends React.Component {
       addItem,
     } = this
     const renderTodos = () => {
-      return todos.map(todo => {
+      return card.items.map(todo => {
         return <Todo onItemChange={onItemChange} key={todo.id} {...todo} />
       })
     }
@@ -44,7 +51,7 @@ class TodoList extends React.Component {
       <div>
         <button onClick={ onAddClick }>[+]</button>
         { showAddTodo && <AddTodo onAddItem={ addItem } />}
-        {renderTodos()}
+        { renderTodos() }
       </div>
     ) 
   }

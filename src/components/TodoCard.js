@@ -7,6 +7,7 @@ class TodoCard extends React.Component {
   static propTypes = {
     card: PropTypes.object,
     onCardChange: PropTypes.func.isRequired,
+    onAddNewTodo: PropTypes.func.isRequired,
   }
   static defaultProps = {
     card: {},
@@ -27,6 +28,8 @@ class TodoCard extends React.Component {
         title,
         items,
       },
+      card,
+      onAddNewTodo,
     } = this.props
     const {
       handleItemChange,
@@ -34,7 +37,11 @@ class TodoCard extends React.Component {
     return (
       <div>
         <h3>{ title }</h3>
-        <TodoList todos={ items } onItemChange={ handleItemChange }/>
+        <TodoList
+          card={ card }
+          todos={ items }
+          onItemChange={ handleItemChange }
+          onAddNewTodo={ onAddNewTodo } />
       </div>
     )
   }
