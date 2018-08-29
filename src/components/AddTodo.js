@@ -26,7 +26,7 @@ class AddTodo extends React.Component {
         completed: false,
       })
     }
-    this.refs.item.value = ''
+    this.refs.item ? this.refs.item.value = '' : null
   }
   render() {
     const { 

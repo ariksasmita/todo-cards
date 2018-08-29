@@ -13,8 +13,12 @@ None yet :p
 #Steps:
 ✅ Setup states, structures, defaultProps
 ✅ Add initial test framework
-🔳 Func. to add item
-    * Testing! **NOW**
+✅ Func. to add item
+    * Testing!
+    * Add 'Enter' button accessibility
+    * Add the component to Card comp.
+      * Trigger displaying by [+] button bottom right
+    * Udpate tests **DONE**
 ✅ Func. to toggle item
     * File `components/Todo.js`
     * Try to pass down toggle method using Context API

@@ -53,9 +53,9 @@ class TodoApp extends React.Component {
         todo.items.push(item)
       }
     })
-    this.setState(prevState => ({
+    this.setState({
       cards: newCards
-    }))
+    })
   }
   render() {
     const {
