@@ -16,6 +16,10 @@ class TodoApp extends React.Component {
       cards: mockCards,
     })
   }
+  componentDidMount() {
+    console.log(this.state.cards)
+    // this.deleteCard('1')
+  }
   toggleItem = (cardId, itemId) => {
     const { cards } = this.state
     const updatedCards = cards.map(card => {
@@ -57,6 +61,18 @@ class TodoApp extends React.Component {
       cards: newCards
     })
   }
+  deleteCard = (cardId) => {
+    const { cards } = this.state
+    const newCards = cards
+    Array.from(newCards).forEach((todo, index) => {
+      console.log(index)
+      if (todo.id === cardId) {
+        // here, this is not working yet
+        newCards.splice(index, 1)
+      }
+    })
+    console.log('baru', newCards)
+  }
   render() {
     const {
       cards,
@@ -65,6 +81,7 @@ class TodoApp extends React.Component {
     const {
       addNewCard,
       addNewTodo,
+      deleteCard,
       toggleItem,
       toggleCompletedDisplay,
     } = this
@@ -76,6 +93,7 @@ class TodoApp extends React.Component {
             key={card.id}
             onCardChange={toggleItem}
             onAddNewTodo={addNewTodo}
+            onDeleteCard={deleteCard}
             card={card} />
         )
       })

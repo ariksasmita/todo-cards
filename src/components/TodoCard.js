@@ -30,6 +30,7 @@ class TodoCard extends React.Component {
       },
       card,
       onAddNewTodo,
+      onDeleteCard,
     } = this.props
     const {
       handleItemChange,
@@ -42,6 +43,7 @@ class TodoCard extends React.Component {
           todos={ items }
           onItemChange={ handleItemChange }
           onAddNewTodo={ onAddNewTodo } />
+        <button onClick={ onDeleteCard }>Delete</button>
       </div>
     )
   }

@@ -1,10 +1,11 @@
 import React from "react"
-import ReactDOM from "react-dom"
-import PropTypes from "prop-types"
-import moment from "moment"
+import PropTypes from 'prop-types'
 import uuid from "uuid"
 
 class AddTodo extends React.Component {
+  static propTypes = {
+    onAddItem: PropTypes.func.isRequired,
+  }
   state = {
     text: ""
   }

@@ -15,7 +15,7 @@ None yet :p
 ✅ Add initial test framework
 ✅ Func. to add item
     * Testing!
-    * Add 'Enter' button accessibility
+    * Add 'Enter' button accessibility **DONE**
     * Add the component to Card comp.
       * Trigger displaying by [+] button bottom right
     * Udpate tests **DONE**
@@ -34,6 +34,9 @@ None yet :p
     * Test case
     * ~~Separate API and Selectors~~ -- can ignore for now
     * **BUGFIXED** Newly added items not affected
+🔳 Func. to delete item
+  * Add [trash] button for each cards
+  * Add handler
 🔳 Func. to search item
 🔳 Wire up timestamps data
 🔳 Wire up add item to local storeage
