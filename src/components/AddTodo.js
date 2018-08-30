@@ -1,18 +1,24 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
-import moment from 'moment'
-import uuid from 'uuid'
+import React from "react"
+import ReactDOM from "react-dom"
+import PropTypes from "prop-types"
+import moment from "moment"
+import uuid from "uuid"
 
 class AddTodo extends React.Component {
   state = {
-    text: '',
+    text: ""
   }
-  handleInputChange = (ev) => {
+  handleInputKeyDown = ev => {
+    const { hoistItem } = this
+    if (ev.key && ev.key === "Enter") {
+      hoistItem()
+    }
+  }
+  handleInputChange = () => {
     const text = this.refs.item.value
     if (text) {
       this.setState({
-        text,
+        text
       })
     }
   }
@@ -23,20 +29,24 @@ class AddTodo extends React.Component {
       onAddItem({
         id: uuid(),
         text,
-        completed: false,
+        completed: false
       })
     }
-    this.refs.item ? this.refs.item.value = '' : null
+    this.refs.item ? (this.refs.item.value = "") : null
   }
   render() {
-    const { 
-      handleInputChange,
-      hoistItem,
-    } = this
+    const { handleInputChange, handleInputKeyDown, hoistItem } = this
     return (
       <div>
-        <input type="text" ref="item" onChange={ handleInputChange } />
-        <button ref="add" onClick={ hoistItem }>Add</button>
+        <input
+          type="text"
+          ref="item"
+          onChange={handleInputChange}
+          onKeyDown={handleInputKeyDown}
+        />
+        <button ref="add" onClick={hoistItem}>
+          Add
+        </button>
       </div>
     )
   }
