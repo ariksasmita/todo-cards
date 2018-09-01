@@ -5,7 +5,7 @@ const mockCards = [
     items: [
       {
         id: '1',
-        text: 'Some todo item',
+        text: 'Some todo item first',
         completed: true,
       },
       {
@@ -33,10 +33,12 @@ const mockCards = [
   },
 ]
 
-const filterByState = (cards, showCompleted = false) => {
+const filterTodos = (cards, showCompleted = false, filterString = '') => {
 	var filteredCards = []
   Array.from(cards).forEach(card => {
-  	if (card.items.some(item => !item.completed || showCompleted)) {
+    const completedFilter = card.items.some(item => !item.completed || showCompleted)
+    const stringFilter = card.items.some(item => item.text.includes(filterString))
+  	if (completedFilter && stringFilter) {
     	filteredCards.push({
       	id: card.id,
         title: card.title,
@@ -49,5 +51,5 @@ const filterByState = (cards, showCompleted = false) => {
 
 module.exports = {
   mockCards,
-  filterByState,
+  filterTodos,
 }

@@ -17,7 +17,7 @@ const mockCards = [
     items: [
       {
         id: '1',
-        text: 'some todo',
+        text: 'some todo first',
         completed: false,
       },
       {
@@ -47,13 +47,17 @@ const mockCards = [
 
 describe('TodoAPI', () => {
   it('returns all items when show completed flag is true', () => {
-    const cards = TodoAPI.filterByState(mockCards, true)
+    const cards = TodoAPI.filterTodos(mockCards, true)
     expect(cards[0].items.length).toBe(2)
     expect(cards[1].items.length).toBe(2)
   })
   it('returns only uncompleted items by default', () => {
-    const cards = TodoAPI.filterByState(mockCards, false)
+    const cards = TodoAPI.filterTodos(mockCards, false)
     expect(cards[0].items.length).toBe(1)
     expect(cards[1].items.length).toBe(2)
+  })
+  it('returns only card and items containing search string', () => {
+    expect(TodoAPI.filterTodos(mockCards, true, 'first').length).toBe(1)
+    expect(TodoAPI.filterTodos(mockCards, true, 'yam').length).toBe(0)
   })
 })

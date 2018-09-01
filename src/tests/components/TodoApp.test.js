@@ -26,6 +26,12 @@ const newCard = {
  */
 
 describe('TodoApp', () => {
+  let renderWrapper
+  beforeEach(() => {
+    const { wrapper } = setup()
+    const instance = wrapper.instance()
+    instance.resetState()
+  })
   it('renders without error', () => {
     setup()
   })
@@ -41,6 +47,15 @@ describe('TodoApp', () => {
     expect(wrapper.state().cards.length).toBe(2)
     instance.addNewCard(newCard)
     expect(wrapper.state().cards.length).toBe(3)
+  })
+  it('delete card', () => {
+    const { wrapper } = setup()
+    const instance = wrapper.instance()
+    const cardCounts = wrapper.state().cards.length
+    instance.addNewCard(newCard)
+    expect(wrapper.state().cards.length).toBe(cardCounts + 1)
+    instance.deleteCard(newCard.id)
+    expect(wrapper.state().cards.length).toBe(cardCounts)
   })
   it('adds new todo to a target card', () => {
     const { wrapper } = setup()

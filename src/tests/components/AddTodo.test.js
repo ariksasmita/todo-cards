@@ -18,4 +18,11 @@ describe('AddTodo', () => {
   it('should render properly', () => {
     const { wrapper } = setup()
   })
+  it('will hoist new item', () => {
+    const { wrapper, props: { onAddItem } } = setup()
+    const instance = wrapper.instance()
+    wrapper.setState({ text: 'testing' })
+    instance.hoistItem()
+    expect(onAddItem).toHaveBeenCalled()
+  })
 })

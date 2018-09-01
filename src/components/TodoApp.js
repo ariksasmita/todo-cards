@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { mockCards, filterByState } from '../api/TodoAPI'
+import { mockCards, filterTodos } from '../api/TodoAPI'
 
 import TodoCard from './TodoCard'
 import AddCard from './AddCard'
@@ -15,10 +15,6 @@ class TodoApp extends React.Component {
     this.setState({
       cards: mockCards,
     })
-  }
-  componentDidMount() {
-    console.log(this.state.cards)
-    // this.deleteCard('1')
   }
   toggleItem = (cardId, itemId) => {
     const { cards } = this.state
@@ -64,14 +60,20 @@ class TodoApp extends React.Component {
   deleteCard = (cardId) => {
     const { cards } = this.state
     const newCards = cards
-    Array.from(newCards).forEach((todo, index) => {
-      console.log(index)
-      if (todo.id === cardId) {
-        // here, this is not working yet
+    Array.from(newCards).forEach((card, index) => {
+      if (card.id === cardId) {
         newCards.splice(index, 1)
       }
     })
-    console.log('baru', newCards)
+    this.setState({
+      cards: newCards
+    })
+  }
+  resetState = () => {
+    this.setState({
+      cards: [],
+      showCompleted: true,
+    })
   }
   render() {
     const {
@@ -85,7 +87,7 @@ class TodoApp extends React.Component {
       toggleItem,
       toggleCompletedDisplay,
     } = this
-    const filteredCards = filterByState(cards, showCompleted)
+    const filteredCards = filterTodos(cards, showCompleted)
     const renderCards = () => {
       return filteredCards.map(card => {
         return (

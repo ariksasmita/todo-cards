@@ -5,7 +5,11 @@ import { shallow } from 'enzyme';
 import TodoCard from '../../components/TodoCard';
 
 const setup = (props, onChange) => {
-  const wrapper = shallow(<TodoCard onCardChange={onChange} {...props} />);
+  const onAddNewTodo = jest.fn()
+  const wrapper = shallow(<TodoCard
+    onAddNewTodo={ onAddNewTodo }
+    onCardChange={onChange}
+    {...props} />);
   return {
     wrapper,
     props,
@@ -38,6 +42,5 @@ describe('TodoCard', () => {
   it('renders without error', () => {
     const onCardChange = jest.fn()
     const { wrapper, props } = setup(mergeWithRequiredProps(), onCardChange);
-    shallow(<TodoCard card={props} onCardChange={onCardChange} />);
   });
 });

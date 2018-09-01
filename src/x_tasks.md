@@ -34,11 +34,16 @@ None yet :p
     * Test case
     * ~~Separate API and Selectors~~ -- can ignore for now
     * **BUGFIXED** Newly added items not affected
-🔳 Func. to delete item
+✅ Func. to delete item
   * Add [trash] button for each cards
   * Add handler
+  * Tests
 🔳 Func. to search item
+  * Write API filter **DONE**
+  * API Tests **DONE**
+  * Wire up function to module **NOW**
 🔳 Wire up timestamps data
 🔳 Wire up add item to local storeage
+🔳 Optimize test with mergeWithRequiredProps pattern
 🔳 (Optional) add some firebase hook (?)
 🔳 Make it phreetheee and shyneee ✨

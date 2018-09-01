@@ -4,6 +4,24 @@ import { shallow } from 'enzyme'
 
 import TodoList from '../../components/TodoList'
 
+const setup = () => {
+  const props = {
+    card: {
+      id: '234',
+      title: 'oh a title sure',
+      items: mockTodos,
+    },
+    todos: mockTodos, // will need to delete this later
+    onItemChange: jest.fn(),
+    onAddNewTodo: jest.fn(),
+  }
+  const wrapper = shallow(<TodoList {...props}/>)
+  return {
+    wrapper,
+    props,
+  }
+}
+
 const mockTodos = [
   {
     id: '1',
@@ -19,7 +37,8 @@ const mockTodos = [
 
 describe('TodoList', () => {
   it('renders without error', () => {
-    const onItemChange = jest.fn()
-    shallow(<TodoList todos={ mockTodos } onItemChange={ onItemChange } />)
+    const { wrapper } = setup()
+    // const onItemChange = jest.fn()
+    // shallow(<TodoList card={  } todos={ mockTodos } onItemChange={ onItemChange } />)
   })
 })

@@ -22,28 +22,37 @@ class TodoCard extends React.Component {
       onCardChange(card.id, itemId)
     }
   }
+  handleItemDelete = (ev) => {
+    const { 
+      onDeleteCard,
+      card: {
+        id,
+      }
+    } = this.props
+    if(id) {
+      onDeleteCard(id)
+    }
+  }
   render() {
     const {
       card: {
         title,
-        items,
       },
       card,
       onAddNewTodo,
-      onDeleteCard,
     } = this.props
     const {
       handleItemChange,
+      handleItemDelete,
     } = this
     return (
       <div>
-        <h3>{ title }</h3>
+        <h3>{ card.title }</h3>
         <TodoList
           card={ card }
-          todos={ items }
           onItemChange={ handleItemChange }
           onAddNewTodo={ onAddNewTodo } />
-        <button onClick={ onDeleteCard }>Delete</button>
+        <button onClick={ handleItemDelete }>Delete</button>
       </div>
     )
   }
