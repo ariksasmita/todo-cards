@@ -44,6 +44,7 @@ None yet :p
   * Wire up function to module **DONE**
 🔳 Wire up timestamps data
 🔳 Wire up add item to local storeage
+  * Writing get and set data function from local storage **DONE**
 🔳 Optimize test with mergeWithRequiredProps pattern
 🔳 ~~NICE TO HAVE~~ Use Context API instead of prop drilling
 🔳 (Optional) add some firebase hook (?)

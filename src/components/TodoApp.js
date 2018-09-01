@@ -1,6 +1,11 @@
 import React from 'react'
 
-import { mockCards, filterTodos } from '../api/TodoAPI'
+import {
+  mockCards,
+  filterTodos,
+  setTodosToLocalStorage,
+  getTodosFromLocalStorage,
+} from '../api/TodoAPI'
 
 import TodoCard from './TodoCard'
 import AddCard from './AddCard'
@@ -13,9 +18,14 @@ class TodoApp extends React.Component {
     filterString: '',
   }
   componentWillMount() {
+    const cards = getTodosFromLocalStorage() || mockCards
     this.setState({
-      cards: mockCards,
+      cards,
     })
+  }
+  componentDidUpdate() {
+    const { cards } = this.state
+    setTodosToLocalStorage(cards)
   }
   toggleItem = (cardId, itemId) => {
     const { cards } = this.state

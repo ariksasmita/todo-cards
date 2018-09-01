@@ -33,6 +33,14 @@ const mockCards = [
   },
 ]
 
+const setTodosToLocalStorage = (cards) => {
+  localStorage.setItem('cards', JSON.stringify(cards || mockCards))
+}
+
+const getTodosFromLocalStorage = () => {
+  return JSON.parse(localStorage.getItem('cards'))
+}
+
 const filterTodos = (cards, showCompleted = false, filterString = '') => {
 	var filteredCards = []
   Array.from(cards).forEach(card => {
@@ -54,4 +62,6 @@ const filterTodos = (cards, showCompleted = false, filterString = '') => {
 module.exports = {
   mockCards,
   filterTodos,
+  setTodosToLocalStorage,
+  getTodosFromLocalStorage,
 }
