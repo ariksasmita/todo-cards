@@ -38,12 +38,13 @@ None yet :p
   * Add [trash] button for each cards
   * Add handler
   * Tests
-🔳 Func. to search item
+✅ Func. to search item
   * Write API filter **DONE**
   * API Tests **DONE**
-  * Wire up function to module **NOW**
+  * Wire up function to module **DONE**
 🔳 Wire up timestamps data
 🔳 Wire up add item to local storeage
 🔳 Optimize test with mergeWithRequiredProps pattern
+🔳 ~~NICE TO HAVE~~ Use Context API instead of prop drilling
 🔳 (Optional) add some firebase hook (?)
 🔳 Make it phreetheee and shyneee ✨

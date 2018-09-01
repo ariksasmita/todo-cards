@@ -42,7 +42,9 @@ const filterTodos = (cards, showCompleted = false, filterString = '') => {
     	filteredCards.push({
       	id: card.id,
         title: card.title,
-        items: card.items.filter(item => !item.completed || showCompleted),
+        items: card.items.filter((item) => {
+          return (!item.completed || showCompleted) && item.text.includes(filterString)
+        }),
       })
     }
   })

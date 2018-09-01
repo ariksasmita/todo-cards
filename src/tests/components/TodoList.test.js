@@ -11,7 +11,6 @@ const setup = () => {
       title: 'oh a title sure',
       items: mockTodos,
     },
-    todos: mockTodos, // will need to delete this later
     onItemChange: jest.fn(),
     onAddNewTodo: jest.fn(),
   }
@@ -38,7 +37,5 @@ const mockTodos = [
 describe('TodoList', () => {
   it('renders without error', () => {
     const { wrapper } = setup()
-    // const onItemChange = jest.fn()
-    // shallow(<TodoList card={  } todos={ mockTodos } onItemChange={ onItemChange } />)
   })
 })

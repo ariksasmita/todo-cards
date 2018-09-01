@@ -33,7 +33,9 @@ class AddTodo extends React.Component {
         completed: false
       })
     }
-    this.refs.item ? (this.refs.item.value = "") : null
+    if (this.refs.item){
+      this.refs.item.value = ""
+    }
   }
   render() {
     const { handleInputChange, handleInputKeyDown, hoistItem } = this

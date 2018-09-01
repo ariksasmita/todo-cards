@@ -7,13 +7,11 @@ import AddTodo from './AddTodo'
 class TodoList extends React.Component {
   static propTypes = {
     card: PropTypes.object,
-    // todos: PropTypes.array,
     onItemChange: PropTypes.func.isRequired,
     onAddNewTodo: PropTypes.func.isRequired,
   }
   static defaultProps = {
     card: {},
-    // todos: [],
   }
   state = {
     showAddTodo: false,
@@ -25,14 +23,14 @@ class TodoList extends React.Component {
     })
   }
   addItem = (item) => {
-    const { 
+    const {
       card: { id },
       onAddNewTodo
     } = this.props
     onAddNewTodo(id, item)
   }
   render() {
-    const { 
+    const {
       card,
       onItemChange,
     } = this.props
@@ -53,7 +51,7 @@ class TodoList extends React.Component {
         { showAddTodo && <AddTodo onAddItem={ addItem } />}
         { renderTodos() }
       </div>
-    ) 
+    )
   }
 }
 

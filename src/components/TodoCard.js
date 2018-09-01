@@ -35,9 +35,6 @@ class TodoCard extends React.Component {
   }
   render() {
     const {
-      card: {
-        title,
-      },
       card,
       onAddNewTodo,
     } = this.props

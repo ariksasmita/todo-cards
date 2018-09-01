@@ -10,6 +10,7 @@ class TodoApp extends React.Component {
   state = {
     cards: [],
     showCompleted: true,
+    filterString: '',
   }
   componentWillMount() {
     this.setState({
@@ -75,10 +76,16 @@ class TodoApp extends React.Component {
       showCompleted: true,
     })
   }
+  setFilterString = (filterString) => {
+    this.setState({
+      filterString,
+    })
+  }
   render() {
     const {
       cards,
       showCompleted,
+      filterString,
     } = this.state
     const {
       addNewCard,
@@ -86,8 +93,9 @@ class TodoApp extends React.Component {
       deleteCard,
       toggleItem,
       toggleCompletedDisplay,
+      setFilterString,
     } = this
-    const filteredCards = filterTodos(cards, showCompleted)
+    const filteredCards = filterTodos(cards, showCompleted, filterString)
     const renderCards = () => {
       return filteredCards.map(card => {
         return (
@@ -106,7 +114,8 @@ class TodoApp extends React.Component {
         <AddCard onHoistCard={ addNewCard } />
         <SearchTodo
           showCompleted={ showCompleted }
-          toggleCompletedDisplay={ toggleCompletedDisplay } />
+          toggleCompletedDisplay={ toggleCompletedDisplay }
+          onSearchChange={ setFilterString } />
         { renderCards() }
       </div>
     )
