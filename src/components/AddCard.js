@@ -48,6 +48,7 @@ class AddCard extends React.Component {
       title: '',
       items: [],
     })
+    this.refs.title.value = ''
   }
   render() {
     const {
