@@ -30,7 +30,8 @@ class AddTodo extends React.Component {
       onAddItem({
         id: uuid(),
         text,
-        completed: false
+        completed: false,
+        timeCreated: Date.now(),
       })
     }
     if (this.refs.item){

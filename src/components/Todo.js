@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
 class Todo extends React.Component {
   static propTypes = {
@@ -18,13 +19,18 @@ class Todo extends React.Component {
       id,
       text,
       completed,
+      timeCreated,
       onItemChange,
     } = this.props
 
     return (
       <li className="card-item_list-item">
-        <input type="checkbox" value={ id } defaultChecked={ completed } onChange={ onItemChange }/>
-        <span>{text}</span>
+        <input
+          type="checkbox"
+          value={ id }
+          defaultChecked={ completed }
+          onChange={ onItemChange } />
+        <span>{moment(timeCreated).format('D MMM Y')} {text}</span>
       </li>
     )
   }

@@ -7,11 +7,13 @@ const mockCards = [
         id: '1',
         text: 'Some todo item first',
         completed: true,
+        timeCreated: Date.now()
       },
       {
         id: '3',
         text: 'And some more todo item',
         completed: true,
+        timeCreated: Date.now()
       },
     ],
   },
@@ -23,11 +25,13 @@ const mockCards = [
         id: '1',
         text: 'Is some todo item',
         completed: true,
+        timeCreated: Date.now()
       },
       {
         id: '3',
         text: 'Also some more todo item',
         completed: false,
+        timeCreated: Date.now()
       },
     ],
   },
@@ -38,6 +42,8 @@ const setTodosToLocalStorage = (cards) => {
 }
 
 const getTodosFromLocalStorage = () => {
+  // for testing purpose
+  if (!localStorage.getItem('cards')) { setTodosToLocalStorage() }
   return JSON.parse(localStorage.getItem('cards'))
 }
 

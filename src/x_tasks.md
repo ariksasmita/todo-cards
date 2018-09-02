@@ -43,9 +43,11 @@ None yet :p
   * API Tests **DONE**
   * Wire up function to module **DONE**
 🔳 Wire up timestamps data
-🔳 Wire up add item to local storeage
+  * Date.now()
+✅ Wire up add item to local storeage
   * Writing get and set data function from local storage **DONE**
-🔳 Optimize test with mergeWithRequiredProps pattern
+  * Updates Test App **DONE**
+🔳 Optimize tests with mergeWithRequiredProps pattern
 🔳 ~~NICE TO HAVE~~ Use Context API instead of prop drilling
 🔳 (Optional) add some firebase hook (?)
 🔳 Make it phreetheee and shyneee ✨

@@ -2,9 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { shallow } from 'enzyme'
 
+import { mockCards } from '../../api/TodoAPI'
 import TodoApp from '../../components/TodoApp'
+import localStorage from '../utilities/localStorage';
 
 const setup = () => {
+  // mocking browser's localStorage API
+  window.localStorage = localStorage
+  localStorage.setItem('cards', JSON.stringify(mockCards))
+
   const wrapper = shallow(<TodoApp />)
   return {
     wrapper,
@@ -20,10 +26,6 @@ const newCard = {
     completed: false,
   }]
 }
-
-/* TODO:
- * When API done, update this with mocked cards data
- */
 
 describe('TodoApp', () => {
   let renderWrapper

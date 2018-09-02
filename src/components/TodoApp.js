@@ -18,14 +18,16 @@ class TodoApp extends React.Component {
     filterString: '',
   }
   componentWillMount() {
-    const cards = getTodosFromLocalStorage() || mockCards
+    const cards = getTodosFromLocalStorage() || mockCards // remove the mock afterwards
     this.setState({
       cards,
     })
   }
-  componentDidUpdate() {
+  componentDidUpdate(prevState) {
     const { cards } = this.state
-    setTodosToLocalStorage(cards)
+    if (prevState !== cards) {
+      setTodosToLocalStorage(cards)
+    }
   }
   toggleItem = (cardId, itemId) => {
     const { cards } = this.state
