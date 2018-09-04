@@ -1,3 +1,5 @@
+import moment from 'moment'
+
 const mockCards = [
   {
     id: '1',
@@ -7,13 +9,15 @@ const mockCards = [
         id: '1',
         text: 'Some todo item first',
         completed: true,
-        timeCreated: Date.now()
+        timeCreated: Date.now(),
+        timeCompleted: null,
       },
       {
         id: '3',
         text: 'And some more todo item',
         completed: true,
-        timeCreated: Date.now()
+        timeCreated: Date.now(),
+        timeCompleted: null,
       },
     ],
   },
@@ -25,13 +29,15 @@ const mockCards = [
         id: '1',
         text: 'Is some todo item',
         completed: true,
-        timeCreated: Date.now()
+        timeCreated: Date.now(),
+        timeCompleted: null,
       },
       {
         id: '3',
         text: 'Also some more todo item',
         completed: false,
-        timeCreated: Date.now()
+        timeCreated: Date.now(),
+        timeCompleted: null,
       },
     ],
   },
@@ -42,8 +48,9 @@ const setTodosToLocalStorage = (cards) => {
 }
 
 const getTodosFromLocalStorage = () => {
-  // for testing purpose
+  // ↓↓↓↓↓↓↓↓↓↓↓↓↓ for testing purpose ↓↓↓↓↓↓↓↓↓↓↓↓↓ 
   if (!localStorage.getItem('cards')) { setTodosToLocalStorage() }
+  // ↑↑↑↑↑↑↑↑↑↑↑↑↑ for testing purpose ↑↑↑↑↑↑↑↑↑↑↑↑↑
   return JSON.parse(localStorage.getItem('cards'))
 }
 
@@ -54,7 +61,7 @@ const filterTodos = (cards, showCompleted = false, filterString = '') => {
     const stringFilter = card.items.some(item => item.text.includes(filterString))
   	if (completedFilter && stringFilter) {
     	filteredCards.push({
-      	id: card.id,
+        id: card.id,
         title: card.title,
         items: card.items.filter((item) => {
           return (!item.completed || showCompleted) && item.text.includes(filterString)
@@ -65,7 +72,7 @@ const filterTodos = (cards, showCompleted = false, filterString = '') => {
   return filteredCards
 }
 
-module.exports = {
+export {
   mockCards,
   filterTodos,
   setTodosToLocalStorage,

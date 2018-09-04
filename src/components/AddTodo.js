@@ -32,6 +32,7 @@ class AddTodo extends React.Component {
         text,
         completed: false,
         timeCreated: Date.now(),
+        timeCompleted: null,
       })
     }
     if (this.refs.item){

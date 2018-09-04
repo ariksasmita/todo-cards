@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 import AddCard from '../../components/AddCard'
 
@@ -7,7 +7,7 @@ const setup = () => {
   const props = {
     onHoistCard: jest.fn(),
   }
-  const wrapper = shallow(<AddCard { ...props } />)
+  const wrapper = mount(<AddCard { ...props } />)
   return {
     wrapper,
     props,
@@ -29,6 +29,7 @@ describe('AddCard', () => {
         completed: false,
       }]
     })
+    wrapper.ref('title').value = 'new card title'
     instance.hoistCard()
     expect(onHoistCard).toHaveBeenCalled()
   })

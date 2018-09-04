@@ -44,6 +44,8 @@ None yet :p
   * Wire up function to module **DONE**
 🔳 Wire up timestamps data
   * Date.now()
+  * Time created
+  * Time completed
 ✅ Wire up add item to local storeage
   * Writing get and set data function from local storage **DONE**
   * Updates Test App **DONE**
