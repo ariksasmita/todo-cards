@@ -48,9 +48,9 @@ const setTodosToLocalStorage = (cards) => {
 }
 
 const getTodosFromLocalStorage = () => {
-  // ↓↓↓↓↓↓↓↓↓↓↓↓↓ for testing purpose ↓↓↓↓↓↓↓↓↓↓↓↓↓ 
+  // ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓ for testing purpose ↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
   if (!localStorage.getItem('cards')) { setTodosToLocalStorage() }
-  // ↑↑↑↑↑↑↑↑↑↑↑↑↑ for testing purpose ↑↑↑↑↑↑↑↑↑↑↑↑↑
+  // ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑ for testing purpose ↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑
   return JSON.parse(localStorage.getItem('cards'))
 }
 

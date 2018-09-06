@@ -36,6 +36,7 @@ class TodoApp extends React.Component {
         card.items.map(item => {
           if(item.id === itemId) {
             item.completed = !item.completed
+            item.completed ? item.timeCompleted = Date.now() : item.timeCompleted = null
           }
           return item
         })

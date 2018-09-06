@@ -42,10 +42,10 @@ None yet :p
   * Write API filter **DONE**
   * API Tests **DONE**
   * Wire up function to module **DONE**
-🔳 Wire up timestamps data
-  * Date.now()
-  * Time created
-  * Time completed
+✅ Wire up timestamps data
+  * Date.now() **DONE**
+  * Time created **DONE**
+  * Time completed **DONE**
 ✅ Wire up add item to local storeage
   * Writing get and set data function from local storage **DONE**
   * Updates Test App **DONE**

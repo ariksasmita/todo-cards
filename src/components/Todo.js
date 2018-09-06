@@ -20,8 +20,17 @@ class Todo extends React.Component {
       text,
       completed,
       timeCreated,
+      timeCompleted,
       onItemChange,
     } = this.props
+
+    const formatTime = (timeStamp) => {
+      return moment(timeStamp).format('D MMM Y')
+    }
+
+    const strike = {
+      textDecoration: 'line-through',
+    }
 
     return (
       <li className="card-item_list-item">
@@ -30,7 +39,10 @@ class Todo extends React.Component {
           value={ id }
           defaultChecked={ completed }
           onChange={ onItemChange } />
-        <span>{moment(timeCreated).format('D MMM Y')} {text}</span>
+
+        <span style={ completed ? strike : null }>
+          { completed ? formatTime(timeCompleted) : formatTime(timeCreated) } {text}
+        </span>
       </li>
     )
   }
