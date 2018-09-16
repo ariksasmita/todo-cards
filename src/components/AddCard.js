@@ -69,7 +69,6 @@ class AddCard extends React.Component {
 
     return (
       <div>
-        <h4>AddCard Component</h4>
         <input
           type="text"
           ref="title"

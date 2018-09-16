@@ -41,7 +41,7 @@ describe('TodoApp', () => {
     const { wrapper } = setup()
     const instance = wrapper.instance()
     instance.toggleItem('1', '1')
-    expect(wrapper.state().cards[0].items[0].completed).toBe(false)
+    expect(wrapper.state().cards[0].items[0].completed).toBe(true)
   })
   it('adds new card', () => {
     const { wrapper } = setup()
@@ -69,5 +69,11 @@ describe('TodoApp', () => {
     }
     instance.addNewTodo('1', newTodo)
     expect(wrapper.state().cards[0].items.length).toBe(3)
+  })
+  it('toggles AddCard module show state', () => {
+    const { wrapper } = setup()
+    const instance = wrapper.instance()
+    instance.toggleAddCard()
+    expect(wrapper.state().showAddCard).toBe(true)
   })
 })

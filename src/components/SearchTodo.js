@@ -31,7 +31,6 @@ class SearchTodo extends React.Component {
     } = this
     return (
       <div>
-        <h4>Search component</h4>
         <input 
           type="text"
           ref="search"

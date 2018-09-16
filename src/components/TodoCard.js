@@ -46,7 +46,9 @@ class TodoCard extends React.Component {
     } = this
     return (
       <div style={ styles.Container }>
-        <h3 style={ styles.Header }>{ card.title }</h3>
+        <h3 style={ styles.Header }>
+          { card.title }
+        </h3>
         <TodoList
           card={ card }
           onItemChange={ handleItemChange }
