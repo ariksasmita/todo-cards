@@ -132,10 +132,11 @@ class TodoApp extends React.Component {
         )
       })
     }
+    const addCardBtnLabel = () => this.state.showAddCard ? 'Close' : 'Add new card'
 
     return (
       <div className="container">
-        <button onClick={ toggleAddCard }>Add new card</button>
+        <button onClick={ toggleAddCard }>{ addCardBtnLabel() }</button>
         { showAddCard && <AddCard onHoistCard={ addNewCard } /> }
         <SearchTodo
           showCompleted={ showCompleted }
