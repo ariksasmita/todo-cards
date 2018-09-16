@@ -1,5 +1,3 @@
-import moment from 'moment'
-
 const mockCards = [
   {
     id: '1',
@@ -8,14 +6,14 @@ const mockCards = [
       {
         id: '1',
         text: 'Some todo item first',
-        completed: true,
+        completed: false,
         timeCreated: Date.now(),
         timeCompleted: null,
       },
       {
         id: '3',
         text: 'And some more todo item',
-        completed: true,
+        completed: false,
         timeCreated: Date.now(),
         timeCompleted: null,
       },
@@ -28,7 +26,7 @@ const mockCards = [
       {
         id: '1',
         text: 'Is some todo item',
-        completed: true,
+        completed: false,
         timeCreated: Date.now(),
         timeCompleted: null,
       },

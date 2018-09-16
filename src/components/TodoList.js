@@ -41,13 +41,13 @@ class TodoList extends React.Component {
     } = this
     const renderTodos = () => {
       return card.items.map(todo => {
-        return <Todo onItemChange={onItemChange} key={todo.id} {...todo} />
+        return <Todo onItemChange={ onItemChange } key={ todo.id } { ...todo } />
       })
     }
 
     return (
       <div>
-        <button onClick={ onAddClick }>[+]</button>
+        <button onClick={ onAddClick }>+</button>
         { showAddTodo && <AddTodo onAddItem={ addItem } />}
         { renderTodos() }
       </div>

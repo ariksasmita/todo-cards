@@ -11,6 +11,8 @@ import TodoCard from './TodoCard'
 import AddCard from './AddCard'
 import SearchTodo from './SearchTodo'
 
+import styles from '../styles/TodoApp.css'
+
 class TodoApp extends React.Component {
   state = {
     cards: [],
@@ -62,9 +64,9 @@ class TodoApp extends React.Component {
   addNewTodo = (cardId, item) => {
     const { cards } = this.state
     const newCards = cards
-    Array.from(newCards).forEach(todo => {
-      if (todo.id === cardId) {
-        todo.items.push(item)
+    Array.from(newCards).forEach(card => {
+      if (card.id === cardId) {
+        card.items.push(item)
       }
     })
     this.setState({
@@ -129,7 +131,9 @@ class TodoApp extends React.Component {
           showCompleted={ showCompleted }
           toggleCompletedDisplay={ toggleCompletedDisplay }
           onSearchChange={ setFilterString } />
-        { renderCards() }
+        <div style={ styles.CardWrapper }>
+          { renderCards() }
+        </div>
       </div>
     )
   }

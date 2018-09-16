@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 
 import TodoList from './TodoList'
 
+import styles from '../styles/TodoCard.css'
+
 class TodoCard extends React.Component {
   static propTypes = {
     card: PropTypes.object,
@@ -29,7 +31,7 @@ class TodoCard extends React.Component {
         id,
       }
     } = this.props
-    if(id) {
+    if (id) {
       onDeleteCard(id)
     }
   }
@@ -43,8 +45,8 @@ class TodoCard extends React.Component {
       handleItemDelete,
     } = this
     return (
-      <div>
-        <h3>{ card.title }</h3>
+      <div style={ styles.Container }>
+        <h3 style={ styles.Header }>{ card.title }</h3>
         <TodoList
           card={ card }
           onItemChange={ handleItemChange }
