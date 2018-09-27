@@ -8,11 +8,13 @@ import styles from '../styles/TodoCard.css'
 class TodoCard extends React.Component {
   static propTypes = {
     card: PropTypes.object,
+    shown: PropTypes.bool,
     onCardChange: PropTypes.func.isRequired,
     onAddNewTodo: PropTypes.func.isRequired,
   }
   static defaultProps = {
     card: {},
+    shown: false,
   }
   handleItemChange = (e) => {
     const { 
@@ -38,14 +40,16 @@ class TodoCard extends React.Component {
   render() {
     const {
       card,
+      shown,
       onAddNewTodo,
     } = this.props
     const {
       handleItemChange,
       handleItemDelete,
     } = this
+    const containerStyles = shown ? { ...styles.Container, ...styles.Shown } : styles.Container
     return (
-      <div style={ styles.Container }>
+      <div style={ containerStyles }>
         <h3 style={ styles.Header }>
           { card.title }
         </h3>

@@ -16,6 +16,7 @@ import styles from '../styles/TodoApp.css'
 class TodoApp extends React.Component {
   state = {
     cards: [],
+    currentCardIndex: 0,
     showCompleted: true,
     showAddCard: false,
     filterString: '',
@@ -92,6 +93,27 @@ class TodoApp extends React.Component {
       showCompleted: true,
     })
   }
+  onNextCard = () => {
+    const {
+      cards,
+      currentCardIndex,
+    } = this.state
+    if (cards.length > (currentCardIndex + 1)) {
+      this.setState({
+        currentCardIndex: currentCardIndex + 1,
+      })
+    }
+  }
+  onPrevCard = () => {
+    const {
+      currentCardIndex,
+    } = this.state
+    if (currentCardIndex > 0) {
+      this.setState({
+        currentCardIndex: currentCardIndex - 1,
+      })
+    }
+  }
   setFilterString = (filterString) => {
     this.setState({
       filterString,
@@ -106,6 +128,7 @@ class TodoApp extends React.Component {
   render() {
     const {
       cards,
+      currentCardIndex,
       showCompleted,
       showAddCard,
       filterString,
@@ -114,6 +137,8 @@ class TodoApp extends React.Component {
       addNewCard,
       addNewTodo,
       deleteCard,
+      onNextCard,
+      onPrevCard,
       toggleItem,
       toggleCompletedDisplay,
       toggleAddCard,
@@ -121,10 +146,15 @@ class TodoApp extends React.Component {
     } = this
     const filteredCards = filterTodos(cards, showCompleted, filterString)
     const renderCards = () => {
-      return filteredCards.map(card => {
+      return filteredCards.map((card, idx) => {
+        let shown = false
+        if (currentCardIndex === idx) {
+          shown = true
+        }
         return (
           <TodoCard
             key={card.id}
+            shown={shown}
             onCardChange={toggleItem}
             onAddNewTodo={addNewTodo}
             onDeleteCard={deleteCard}
@@ -132,16 +162,24 @@ class TodoApp extends React.Component {
         )
       })
     }
-    const addCardBtnLabel = () => this.state.showAddCard ? 'Close' : 'Add new card'
+    const addCardBtnLabel = () => this.state.showAddCard ? '[x]' : '[+]'
 
     return (
-      <div className="container">
-        <button onClick={ toggleAddCard }>{ addCardBtnLabel() }</button>
+      <div className="container" style={ styles.CardContainer }>
+        <div className="top-control-wrapper" style={ styles.TopControlWrapper }>
+          <div className="add-card-btn-wrapper">
+            <button onClick={ toggleAddCard }>{ addCardBtnLabel() }</button>
+          </div>
+          <SearchTodo
+            showCompleted={ showCompleted }
+            toggleCompletedDisplay={ toggleCompletedDisplay }
+            onSearchChange={ setFilterString } />
+        </div>
         { showAddCard && <AddCard onHoistCard={ addNewCard } /> }
-        <SearchTodo
-          showCompleted={ showCompleted }
-          toggleCompletedDisplay={ toggleCompletedDisplay }
-          onSearchChange={ setFilterString } />
+        <div>
+          <button onClick={ onPrevCard }>Prev</button>
+          <button onClick={ onNextCard }>Next</button>
+        </div>
         <div style={ styles.CardWrapper }>
           { renderCards() }
         </div>

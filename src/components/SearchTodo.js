@@ -1,6 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import styles from '../styles/SearchTodo.css'
+// import '../styles/searchTodo.scss'
+
 class SearchTodo extends React.Component {
   static propTypes = {
     showCompleted: PropTypes.bool,
@@ -30,17 +33,24 @@ class SearchTodo extends React.Component {
       handleSearchChange,
     } = this
     return (
-      <div>
-        <input 
-          type="text"
-          ref="search"
-          placeholder="Search items"
-          onChange={handleSearchChange} />
-        <input
-          type="checkbox"
-          onChange={ handleToggleShow }
-          defaultChecked={ showCompleted }
-          ref="show"/> Show completed
+      <div className="search-todo" style={ styles.Wrapper }>
+        <div>
+          <input 
+            type="text"
+            ref="search"
+            placeholder="Search items"
+            style={ styles.Input }
+            onChange={handleSearchChange} />
+        </div>
+        <div>
+          <input
+            type="checkbox"
+            id="show-completed"
+            onChange={ handleToggleShow }
+            defaultChecked={ showCompleted }
+            ref="show"/>
+          <label htmlFor="show-completed"> Show completed</label>
+        </div>
       </div>
     )
   }

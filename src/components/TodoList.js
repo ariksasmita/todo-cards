@@ -40,7 +40,9 @@ class TodoList extends React.Component {
       addItem,
     } = this
     const renderTodos = () => {
-      return card.items.map(todo => {
+      return card.items.map((todo, idx) => {
+        // let itemStyle =
+        // console.log('index', idx)
         return <Todo onItemChange={ onItemChange } key={ todo.id } { ...todo } />
       })
     }

@@ -2,10 +2,10 @@
 * Each task lists act as a card
 * Swipeable cards
 * Big checkboxes (might) that turns grey once completed
-* Alternating list item bg, pastel colors
-* Local Storage (if possible)
-* Search for items
-* Timestamps
+* Now: Alternating list item bg, pastel colors
+* Done: Local Storage (if possible)
+* Done: Search for items
+* Done: Timestamps
 
 #Bugs:
 None yet :p
@@ -53,3 +53,4 @@ None yet :p
 🔳 ~~NICE TO HAVE~~ Use Context API instead of prop drilling
 🔳 (Optional) add some firebase hook (?)
 🔳 Make it phreetheee and shyneee ✨
+  * Moving styling to scss
