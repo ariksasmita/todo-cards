@@ -102,15 +102,24 @@ class TodoApp extends React.Component {
       this.setState({
         currentCardIndex: currentCardIndex + 1,
       })
+    } else {
+      this.setState({
+        currentCardIndex: 0,
+      })
     }
   }
   onPrevCard = () => {
     const {
+      cards,
       currentCardIndex,
     } = this.state
     if (currentCardIndex > 0) {
       this.setState({
         currentCardIndex: currentCardIndex - 1,
+      })
+    } else {
+      this.setState({
+        currentCardIndex: cards.length - 1,
       })
     }
   }
