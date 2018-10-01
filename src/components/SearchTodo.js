@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import styles from '../styles/SearchTodo.css'
-// import '../styles/searchTodo.scss'
 
 class SearchTodo extends React.Component {
   static propTypes = {

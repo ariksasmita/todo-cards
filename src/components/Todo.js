@@ -21,6 +21,7 @@ class Todo extends React.Component {
       completed,
       timeCreated,
       timeCompleted,
+      style,
       onItemChange,
     } = this.props
 
@@ -33,7 +34,7 @@ class Todo extends React.Component {
     }
 
     return (
-      <li className="card-item_list-item">
+      <li style={ style } className="card-item_list-item">
         <input
           type="checkbox"
           value={ id }
