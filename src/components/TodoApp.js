@@ -7,6 +7,8 @@ import {
   getTodosFromLocalStorage,
 } from '../api/TodoAPI'
 
+import Button from '@material-ui/core/Button';
+
 import TodoCard from './TodoCard'
 import AddCard from './AddCard'
 import SearchTodo from './SearchTodo'
@@ -177,7 +179,11 @@ class TodoApp extends React.Component {
       <div className="container" style={ styles.CardContainer }>
         <div className="top-control-wrapper" style={ styles.TopControlWrapper }>
           <div className="add-card-btn-wrapper">
-            <button onClick={ toggleAddCard }>{ addCardBtnLabel() }</button>
+            <Button
+              variant="contained"
+              onClick={ toggleAddCard }>
+              { addCardBtnLabel() }
+            </Button>
           </div>
           <SearchTodo
             showCompleted={ showCompleted }
@@ -186,8 +192,16 @@ class TodoApp extends React.Component {
         </div>
         { showAddCard && <AddCard onHoistCard={ addNewCard } /> }
         <div>
-          <button onClick={ onPrevCard }>Prev</button>
-          <button onClick={ onNextCard }>Next</button>
+          <Button
+            variant="outlined"
+            onClick={ onPrevCard }>
+            Prev
+          </Button>
+          <Button
+            variant="outlined"
+            onClick={ onNextCard }>
+            Next
+          </Button>
         </div>
         <div style={ styles.CardWrapper }>
           { renderCards() }

@@ -1,12 +1,13 @@
 const Container = {
   padding: '20px',
-  position: 'absolute',
   left: '-2000px',
-  minWidth: '320px',
-  maxWidth: '320px',
+  width: '320px',
+  display: 'none',
 }
 const Shown = {
   left: '0',
+  display: 'block',
+
 }
 const Header = {
   fontSize: '18px'

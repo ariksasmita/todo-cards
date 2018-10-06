@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Input from '@material-ui/core/Input'
+
 import styles from '../styles/SearchTodo.css'
 
 class SearchTodo extends React.Component {
@@ -18,10 +20,9 @@ class SearchTodo extends React.Component {
     } = this.props
     toggleCompletedDisplay(this.refs.show.checked)
   }
-  handleSearchChange = () => {
+  handleSearchChange = event => {
     const { onSearchChange } = this.props
-    const filterString = this.refs.search.value
-    onSearchChange(filterString)
+    onSearchChange(event.target.value)
   }
   render() {
     const {
@@ -34,12 +35,13 @@ class SearchTodo extends React.Component {
     return (
       <div className="search-todo" style={ styles.Wrapper }>
         <div>
-          <input 
-            type="text"
-            ref="search"
+          <Input
             placeholder="Search items"
-            style={ styles.Input }
-            onChange={handleSearchChange} />
+            onChange={handleSearchChange}
+            inputProps={{
+              'aria-label': 'Search items',
+            }}
+          />
         </div>
         <div>
           <input

@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import uuid from 'uuid'
 
+import Input from '@material-ui/core/Input'
+
 import AddTodo from './AddTodo'
 
 class AddCard extends React.Component {
@@ -12,9 +14,9 @@ class AddCard extends React.Component {
   static propTypes = {
     onHoistCard: PropTypes.func.isRequired,
   }
-  handleOnChange = () => {
+  handleOnChange = event => {
     this.setState({
-      title: this.refs.title.value,
+      title: event.target.value
     })
   }
   addItem = item => {
@@ -69,8 +71,7 @@ class AddCard extends React.Component {
 
     return (
       <div>
-        <input
-          type="text"
+        <Input
           ref="title"
           placeholder="Enter Title"
           onChange={handleOnChange} />

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import Todo from './Todo'
 import AddTodo from './AddTodo'
 
+import Button from '@material-ui/core/Button';
+
 import styles from '../styles/TodoList.css'
 
 class TodoList extends React.Component {
@@ -32,11 +34,12 @@ class TodoList extends React.Component {
     onAddNewTodo(id, item)
   }
   isEven = (num) => {
-    return (num + 1) % 2 == 0
+    return (num + 1) % 2 === 0
   }
   itemStyle = (num) => {
     const { isEven } = this
     return isEven(num) ? {...styles.ListItem, ...styles.ItemEven} : {...styles.ListItem, ...styles.ItemOdd}
+  }
   render() {
     const {
       card,
@@ -46,23 +49,29 @@ class TodoList extends React.Component {
     const { 
       onAddClick,
       addItem,
-      isEven,
       itemStyle,
     } = this
     const renderTodos = () => {
       return card.items.map((todo, idx) => {
-        // let itemStyle =
-        console.log('index', idx)
-        console.log('isEven', itemStyle(idx))
         return <Todo style={ itemStyle(idx) } onItemChange={ onItemChange } key={ todo.id } { ...todo } />
       })
     }
 
     return (
       <div>
-        <button onClick={ onAddClick }>+</button>
-        { showAddTodo && <AddTodo onAddItem={ addItem } />}
-        { renderTodos() }
+        <div style={ styles.AddItemWrapper }>
+          <Button
+            variant="contained"
+            onClick={ onAddClick }>
+            +
+          </Button>
+          { showAddTodo && <AddTodo onAddItem={ addItem } />}
+        </div>
+        { card.items && 
+          <ul style={ styles.List }>
+            { renderTodos() }
+          </ul>
+        }
       </div>
     )
   }

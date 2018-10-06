@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import TodoList from './TodoList'
+import Button from '@material-ui/core/Button';
 
 import styles from '../styles/TodoCard.css'
 
@@ -57,7 +58,11 @@ class TodoCard extends React.Component {
           card={ card }
           onItemChange={ handleItemChange }
           onAddNewTodo={ onAddNewTodo } />
-        <button onClick={ handleItemDelete }>Delete</button>
+        <Button
+          variant="outlined"
+          onClick={ handleItemDelete }>
+          Delete
+        </Button>
       </div>
     )
   }

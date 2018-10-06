@@ -2,6 +2,11 @@ import React from "react"
 import PropTypes from 'prop-types'
 import uuid from "uuid"
 
+import Button from '@material-ui/core/Button'
+import Input from '@material-ui/core/Input'
+
+import styles from '../styles/AddTodo.css'
+
 class AddTodo extends React.Component {
   static propTypes = {
     onAddItem: PropTypes.func.isRequired,
@@ -15,17 +20,18 @@ class AddTodo extends React.Component {
       hoistItem()
     }
   }
-  handleInputChange = () => {
-    const text = this.refs.item.value
+  handleInputChange = event => {
+    const text = event.target.value
     if (text) {
       this.setState({
         text
       })
     }
   }
-  hoistItem = () => {
+  hoistItem = event => {
     const { onAddItem } = this.props
     const { text } = this.state
+    const description = this.description
     if (text) {
       onAddItem({
         id: uuid(),
@@ -35,23 +41,26 @@ class AddTodo extends React.Component {
         timeCompleted: null,
       })
     }
-    if (this.refs.item){
-      this.refs.item.value = ""
+    if (description.value) {
+      description.value = ''
     }
   }
   render() {
     const { handleInputChange, handleInputKeyDown, hoistItem } = this
     return (
-      <div>
-        <input
-          type="text"
-          ref="item"
+      <div style={ styles.Wrapper }>
+        <Input
+          placeholder="Description"
+          inputRef={ el => this.description = el }
           onChange={handleInputChange}
           onKeyDown={handleInputKeyDown}
+          inputProps={{
+            'aria-label': 'Description',
+          }}
         />
-        <button ref="add" onClick={hoistItem}>
+        <Button ref="add" onClick={hoistItem}>
           Add
-        </button>
+        </Button>
       </div>
     )
   }

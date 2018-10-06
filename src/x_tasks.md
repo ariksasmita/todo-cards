@@ -53,4 +53,15 @@ None yet :p
 🔳 ~~NICE TO HAVE~~ Use Context API instead of prop drilling
 🔳 (Optional) add some firebase hook (?)
 🔳 Make it phreetheee and shyneee ✨
-  * Moving styling to scss
+
+-- 
+* Make functional components for:
+  - Button
+  - Checkboxes
+  - Text input
+
+* On Search, show/hide navigation button and empty cards (?) some are still showing
+* Changing textfield to input
+
++ Fix float/positioning issue for cards
+* Useful UI Kit: https://material-ui.com/getting-started/supported-components/
