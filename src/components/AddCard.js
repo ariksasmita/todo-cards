@@ -50,7 +50,7 @@ class AddCard extends React.Component {
       title: '',
       items: [],
     })
-    this.refs.title.value = ''
+    this.title.value = ''
   }
   render() {
     const {
@@ -72,9 +72,9 @@ class AddCard extends React.Component {
     return (
       <div>
         <Input
-          ref="title"
+          inputRef={ el => this.title = el }
           placeholder="Enter Title"
-          onChange={handleOnChange} />
+          onChange={ handleOnChange } />
         { renderItems() }
         <AddTodo onAddItem={ addItem } />
         <button onClick={ hoistCard }>Save</button>
