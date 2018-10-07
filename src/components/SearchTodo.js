@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import Input from '@material-ui/core/Input'
+import Checkbox from '@material-ui/core/Checkbox'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import styles from '../styles/SearchTodo.css'
 
@@ -14,11 +16,11 @@ class SearchTodo extends React.Component {
   static defaultProps = {
     showCompleted: false,
   }
-  handleToggleShow = () => {
+  handleToggleShow = event => {
     const {
       toggleCompletedDisplay,
     } = this.props
-    toggleCompletedDisplay(this.refs.show.checked)
+    toggleCompletedDisplay(event.target.checked)
   }
   handleSearchChange = event => {
     const { onSearchChange } = this.props
@@ -44,13 +46,16 @@ class SearchTodo extends React.Component {
           />
         </div>
         <div>
-          <input
-            type="checkbox"
-            id="show-completed"
-            onChange={ handleToggleShow }
-            defaultChecked={ showCompleted }
-            ref="show"/>
-          <label htmlFor="show-completed"> Show completed</label>
+          <FormControlLabel
+            control={
+              <Checkbox
+                color="default"
+                checked={ showCompleted }
+                onChange={ handleToggleShow }
+              />
+            }
+            label="Show completed"
+          />
         </div>
       </div>
     )

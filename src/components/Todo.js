@@ -2,6 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 
+import Checkbox from '@material-ui/core/Checkbox'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+
 class Todo extends React.Component {
   static propTypes = {
     id: PropTypes.string,
@@ -35,15 +38,22 @@ class Todo extends React.Component {
 
     return (
       <li style={ style } className="card-item_list-item">
-        <input
-          type="checkbox"
-          value={ id }
-          defaultChecked={ completed }
-          onChange={ onItemChange } />
+        <FormControlLabel
+          control={
+            <Checkbox
+              color="default"
+              value={ id }
+              checked={ completed }
+              onChange={ onItemChange }
+            />
+          }
+          label={
+            <span style={ completed ? strike : null }>
+              { completed ? formatTime(timeCompleted) : formatTime(timeCreated) } {text}
+            </span>
+          }
+        />
 
-        <span style={ completed ? strike : null }>
-          { completed ? formatTime(timeCompleted) : formatTime(timeCreated) } {text}
-        </span>
       </li>
     )
   }
