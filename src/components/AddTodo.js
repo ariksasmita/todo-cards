@@ -52,15 +52,15 @@ class AddTodo extends React.Component {
         <Input
           placeholder="Description"
           inputRef={ el => this.description = el }
-          onChange={handleInputChange}
-          onKeyDown={handleInputKeyDown}
+          onChange={ handleInputChange }
+          onKeyDown={ handleInputKeyDown }
           inputProps={{
             'aria-label': 'Description',
           }}
         />
         <Button
           variant="outlined"
-          onClick={hoistItem}>
+          onClick={ hoistItem }>
           Add
         </Button>
       </div>
