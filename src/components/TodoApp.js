@@ -12,6 +12,7 @@ import Button from '@material-ui/core/Button';
 import TodoCard from './TodoCard'
 import AddCard from './AddCard'
 import SearchTodo from './SearchTodo'
+import Navigation from './Navigation'
 
 import styles from '../styles/TodoApp.css'
 
@@ -22,6 +23,7 @@ class TodoApp extends React.Component {
     showCompleted: true,
     showAddCard: false,
     filterString: '',
+    singleView: false,
   }
   componentWillMount() {
     const cards = getTodosFromLocalStorage() || mockCards // remove the mock afterwards
@@ -143,6 +145,7 @@ class TodoApp extends React.Component {
       showCompleted,
       showAddCard,
       filterString,
+      singleView,
     } = this.state
     const {
       addNewCard,
@@ -191,18 +194,7 @@ class TodoApp extends React.Component {
             onSearchChange={ setFilterString } />
         </div>
         { showAddCard && <AddCard onHoistCard={ addNewCard } /> }
-        <div>
-          <Button
-            variant="outlined"
-            onClick={ onPrevCard }>
-            Prev
-          </Button>
-          <Button
-            variant="outlined"
-            onClick={ onNextCard }>
-            Next
-          </Button>
-        </div>
+        { singleView && <Navigation onNext={ onNextCard } onPrev={ onPrevCard } /> }
         <div style={ styles.CardWrapper }>
           { renderCards() }
         </div>

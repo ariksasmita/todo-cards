@@ -1,10 +1,9 @@
 const CardContainer = {
-  width: '320px',
-  overflow: 'hidden',
 }
 const CardWrapper = {
   display: 'flex',
   overflow: 'auto',
+  flexWrap: 'wrap',
 }
 const TopControlWrapper = {
   display: 'flex',

@@ -55,13 +55,21 @@ None yet :p
 🔳 Make it phreetheee and shyneee ✨
 
 -- 
-* Make functional components for:
++ Make functional components for:
   - Button
   - Checkboxes
   - Text input
 
-* On Search, show/hide navigation button and empty cards (?) some are still showing
-* Changing textfield to input
+##TODO + ON GOING
+* [SINGLE] On Search, show/hide navigation button and empty cards (?) some are still showing
+* [SINGLE] After adding new card, it should show the new card
+* Converting navigation to component
+* Option to show hide navigation
 
+##DONE
++ Changing textfield to input
 + Fix float/positioning issue for cards
-* Useful UI Kit: https://material-ui.com/getting-started/supported-components/
++ [WIDE] Change the showing layout to flex
+
+##NOTES
+- Useful UI Kit: https://material-ui.com/getting-started/supported-components/

@@ -1,8 +1,7 @@
 const Container = {
   padding: '20px',
-  left: '-2000px',
   width: '320px',
-  display: 'none',
+  flexShrink: '0',
 }
 const Shown = {
   left: '0',

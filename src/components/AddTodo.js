@@ -58,7 +58,9 @@ class AddTodo extends React.Component {
             'aria-label': 'Description',
           }}
         />
-        <Button ref="add" onClick={hoistItem}>
+        <Button
+          variant="outlined"
+          onClick={hoistItem}>
           Add
         </Button>
       </div>

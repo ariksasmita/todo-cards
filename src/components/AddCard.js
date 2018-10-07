@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import uuid from 'uuid'
 
+import Button from '@material-ui/core/Button'
 import Input from '@material-ui/core/Input'
 
 import AddTodo from './AddTodo'
@@ -38,7 +39,7 @@ class AddCard extends React.Component {
     if (!!items) {
       const newCard = {
         id: uuid(),
-        title: title || '',
+        title: title || 'Untitled',
         items,
       }
       onHoistCard(newCard)
@@ -77,7 +78,11 @@ class AddCard extends React.Component {
           onChange={ handleOnChange } />
         { renderItems() }
         <AddTodo onAddItem={ addItem } />
-        <button onClick={ hoistCard }>Save</button>
+        <Button
+          variant="outlined"
+          onClick={ hoistCard }>
+          Save
+        </Button>
       </div>
     )
   }
