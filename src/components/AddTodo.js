@@ -50,19 +50,23 @@ class AddTodo extends React.Component {
     return (
       <div style={ styles.Wrapper }>
         <Input
-          placeholder="Description"
+          fullWidth={ true }
+          placeholder="Enter item description"
           inputRef={ el => this.description = el }
           onChange={ handleInputChange }
           onKeyDown={ handleInputKeyDown }
           inputProps={{
-            'aria-label': 'Description',
+            'aria-label': 'Enter items',
           }}
         />
-        <Button
-          variant="outlined"
-          onClick={ hoistItem }>
-          Add
-        </Button>
+        <div
+          style={ {padding: '0 0 0 10px'} }>
+          <Button
+            variant="outlined"
+            onClick={ hoistItem }>
+            +
+          </Button>
+        </div>
       </div>
     )
   }

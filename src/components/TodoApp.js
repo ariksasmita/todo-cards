@@ -21,7 +21,7 @@ class TodoApp extends React.Component {
     cards: [],
     currentCardIndex: 0,
     showCompleted: true,
-    showAddCard: false,
+    showAddCard: true,
     filterString: '',
     singleView: false,
   }
@@ -180,20 +180,22 @@ class TodoApp extends React.Component {
 
     return (
       <div className="container" style={ styles.CardContainer }>
-        <div className="top-control-wrapper" style={ styles.TopControlWrapper }>
-          <div className="add-card-btn-wrapper">
-            <Button
-              variant="contained"
-              onClick={ toggleAddCard }>
-              { addCardBtnLabel() }
-            </Button>
+        <div className="testing" style={ styles.TopSectionWrapper }>
+          <div className="top-control-wrapper" style={ styles.TopControlWrapper }>
+            <div className="add-card-btn-wrapper">
+              <Button
+                variant="contained"
+                onClick={ toggleAddCard }>
+                { addCardBtnLabel() }
+              </Button>
+            </div>
+            <SearchTodo
+              showCompleted={ showCompleted }
+              toggleCompletedDisplay={ toggleCompletedDisplay }
+              onSearchChange={ setFilterString } />
           </div>
-          <SearchTodo
-            showCompleted={ showCompleted }
-            toggleCompletedDisplay={ toggleCompletedDisplay }
-            onSearchChange={ setFilterString } />
+          { showAddCard && <AddCard onHoistCard={ addNewCard } /> }
         </div>
-        { showAddCard && <AddCard onHoistCard={ addNewCard } /> }
         { singleView && <Navigation onNext={ onNextCard } onPrev={ onPrevCard } /> }
         <div style={ styles.CardWrapper }>
           { renderCards() }

@@ -1,13 +1,27 @@
+const _rounded = {
+  borderRadius: '4px',
+  overflow: 'hidden',
+}
+
 const List = {
   listStyleType: 'none',
   padding: '0',
-  borderRadius: '4px',
-  overflow: 'hidden',
+  ..._rounded,
+}
+
+const NewList = {
+  padding: '0',
+  ..._rounded,
 }
 
 const ListItem = {
   padding: '5px 10px',
   color: '#ffffff',
+}
+
+const ListItemPadded = {
+  padding: '15px',
+  display: 'flex',
 }
 
 const ItemEven = {
@@ -24,7 +38,9 @@ const AddItemWrapper = {
 
 export default {
   List,
+  NewList,
   ListItem,
+  ListItemPadded,
   ItemEven,
   ItemOdd,
   AddItemWrapper,

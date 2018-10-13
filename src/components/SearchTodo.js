@@ -36,9 +36,10 @@ class SearchTodo extends React.Component {
     } = this
     return (
       <div className="search-todo" style={ styles.Wrapper }>
-        <div>
+        <div style={ styles.InputWrapper }>
           <Input
             placeholder="Search items"
+            style={ styles.Input }
             onChange={handleSearchChange}
             inputProps={{
               'aria-label': 'Search items',
@@ -46,15 +47,10 @@ class SearchTodo extends React.Component {
           />
         </div>
         <div>
-          <FormControlLabel
-            control={
-              <Checkbox
-                color="default"
-                checked={ showCompleted }
-                onChange={ handleToggleShow }
-              />
-            }
-            label="Show completed"
+          <Checkbox
+            color="default"
+            checked={ showCompleted }
+            onChange={ handleToggleShow }
           />
         </div>
       </div>
