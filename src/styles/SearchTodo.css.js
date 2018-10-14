@@ -13,8 +13,8 @@ const Input = {
 const ShowHideCompleted = {
   border: '1px solid rgba(0, 0, 0, 0.23)',
   borderRadius: '4px',
+  background: '#fff176',
 }
-
 
 export default {
   Wrapper,

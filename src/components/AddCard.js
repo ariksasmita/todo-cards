@@ -119,6 +119,7 @@ class AddCard extends React.Component {
         </div>
         <div>
           <Button
+            style={ styles.LightButton }
             variant="outlined"
             onClick={ hoistCard }>
             Save

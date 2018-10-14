@@ -8,9 +8,6 @@ import Icons from './icons/Icons'
 
 import styles from '../styles/TodoList.css'
 
-const addButton = {
-}
-
 class TodoList extends React.Component {
   static propTypes = {
     card: PropTypes.object,

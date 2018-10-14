@@ -11,18 +11,18 @@ const CardWrapper = {
 const TopControlWrapper = {
   display: 'flex',
   padding: '20px',
-  borderRadius: '4px',
 }
 const TopSectionWrapper = {
   maxWidth: '500px',
   margin: '0 auto 20px',
   background: '#ffeb3b',
+  borderRadius: '4px',
 }
 const ButtonStyle = {
   padding: '10px',
   minWidth: '41px',
+  background: '#fff176',
 }
-
 
 export default {
   CardContainer,
