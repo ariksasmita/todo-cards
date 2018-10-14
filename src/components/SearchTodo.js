@@ -3,9 +3,13 @@ import PropTypes from 'prop-types'
 
 import Input from '@material-ui/core/Input'
 import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
 
 import styles from '../styles/SearchTodo.css'
+
+const showHideCompleted = {
+  border: '1px solid rgba(0, 0, 0, 0.23)',
+  borderRadius: '4px',
+}
 
 class SearchTodo extends React.Component {
   static propTypes = {
@@ -46,7 +50,9 @@ class SearchTodo extends React.Component {
             }}
           />
         </div>
-        <div>
+        <div
+          style={ showHideCompleted }
+          title="Show completed items" >
           <Checkbox
             color="default"
             checked={ showCompleted }

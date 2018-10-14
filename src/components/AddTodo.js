@@ -64,7 +64,7 @@ class AddTodo extends React.Component {
           <Button
             variant="outlined"
             onClick={ hoistItem }>
-            +
+            Add
           </Button>
         </div>
       </div>

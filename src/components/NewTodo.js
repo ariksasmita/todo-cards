@@ -1,29 +1,41 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-import Checkbox from '@material-ui/core/Checkbox'
-import FormControlLabel from '@material-ui/core/FormControlLabel'
-import SvgIcon from '@material-ui/core/SvgIcon'
+import Icons from './icons/Icons'
 
-import CrossIcon from './icons/CrossIcon'
+// move this to proper css.js file
+const spanStyle = {
+  flexGrow: '2',
+  textOverflow: 'ellipsis',
+  maxWidth: 'calc(100% - 24px)',
+}
+const icon = {
+  cursor: 'pointer',
+}
 
 class NewTodo extends React.Component {
   static propTypes = {
     text: PropTypes.string,
+    deleteItem: PropTypes.func.isRequired,
   }
   static defaultProps = {
     text: '',
+  }
+  deleteItemHandler = () => {
+    const { idx, deleteItem } = this.props
+    deleteItem(idx)
   }
   render() {
     const {
       text,
       style,
     } = this.props
+    const { deleteItemHandler } = this
 
     return (
       <li style={ style } className="card-item_list-item">
-        <span style={ {flexGrow: '2'} }>{text}</span>
-        <CrossIcon />
+        <span style={ spanStyle }>{text}</span>
+        <Icons.CrossIcon style={ icon } onClick={ deleteItemHandler } />
       </li>
     )
   }

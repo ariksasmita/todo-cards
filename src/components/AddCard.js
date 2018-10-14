@@ -68,12 +68,21 @@ class AddCard extends React.Component {
       ? { ...defaultListStyle, ...listStyles.ItemEven}
       : { ...defaultListStyle, ...listStyles.ItemOdd }
   }
+  deleteItem = (idx) => {
+    const { items } = this.state
+    const newItems = items
+    newItems.splice(idx, 1)
+    this.setState({
+      items: newItems,
+    })
+  }
   render() {
     const {
       handleOnChange,
       hoistCard,
       addItem,
       itemStyle,
+      deleteItem,
     } = this
     const {
       items
@@ -86,7 +95,8 @@ class AddCard extends React.Component {
                 style={ itemStyle(index) }
                 key={ item.id }
                 idx={ index }
-                text={ item.text } />
+                text={ item.text }
+                deleteItem={ deleteItem }/>
               )
             )
           }

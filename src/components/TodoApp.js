@@ -9,6 +9,7 @@ import {
 
 import Button from '@material-ui/core/Button';
 
+import Icons from './icons/Icons'
 import TodoCard from './TodoCard'
 import AddCard from './AddCard'
 import SearchTodo from './SearchTodo'
@@ -16,12 +17,17 @@ import Navigation from './Navigation'
 
 import styles from '../styles/TodoApp.css'
 
+const buttonStyle = {
+  padding: '10px',
+  minWidth: '41px',
+}
+
 class TodoApp extends React.Component {
   state = {
     cards: [],
     currentCardIndex: 0,
     showCompleted: true,
-    showAddCard: true,
+    showAddCard: false,
     filterString: '',
     singleView: false,
   }
@@ -176,7 +182,7 @@ class TodoApp extends React.Component {
         )
       })
     }
-    const addCardBtnLabel = () => this.state.showAddCard ? '[x]' : '[+]'
+    const addCardBtnLabel = () => this.state.showAddCard ? <Icons.CrossIcon /> : <Icons.PlusIcon />
 
     return (
       <div className="container" style={ styles.CardContainer }>
@@ -184,7 +190,8 @@ class TodoApp extends React.Component {
           <div className="top-control-wrapper" style={ styles.TopControlWrapper }>
             <div className="add-card-btn-wrapper">
               <Button
-                variant="contained"
+                style={ buttonStyle }
+                variant="outlined"
                 onClick={ toggleAddCard }>
                 { addCardBtnLabel() }
               </Button>

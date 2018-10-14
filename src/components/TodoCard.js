@@ -50,7 +50,7 @@ class TodoCard extends React.Component {
     } = this
     const containerStyles = shown ? { ...styles.Container, ...styles.Shown } : styles.Container
     return (
-      <div style={ containerStyles }>
+      <div className="card" style={ containerStyles }>
         <h3 style={ styles.Header }>
           { card.title }
         </h3>

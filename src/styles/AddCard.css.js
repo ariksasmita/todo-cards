@@ -7,4 +7,5 @@ const Input = {
 
 export default {
   Wrapper,
+  Input,
 }

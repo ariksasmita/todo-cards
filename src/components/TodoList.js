@@ -3,10 +3,16 @@ import PropTypes from 'prop-types'
 
 import Todo from './Todo'
 import AddTodo from './AddTodo'
-
 import Button from '@material-ui/core/Button';
+import Icons from './icons/Icons'
 
 import styles from '../styles/TodoList.css'
+
+const addButton = {
+  marginRight: '10px',
+  padding: '10px',
+  minWidth: '41px',
+}
 
 class TodoList extends React.Component {
   static propTypes = {
@@ -56,14 +62,16 @@ class TodoList extends React.Component {
         return <Todo style={ itemStyle(idx) } onItemChange={ onItemChange } key={ todo.id } { ...todo } />
       })
     }
+    const addBtnLabel = () => this.state.showAddTodo ? <Icons.CrossIcon /> : <Icons.PlusIcon />
 
     return (
       <div>
         <div style={ styles.AddItemWrapper }>
           <Button
-            variant="contained"
+            style={ addButton }
+            variant="outlined"
             onClick={ onAddClick }>
-            +
+            { addBtnLabel() }
           </Button>
           { showAddTodo && <AddTodo onAddItem={ addItem } />}
         </div>

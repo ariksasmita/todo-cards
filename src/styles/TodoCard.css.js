@@ -1,7 +1,10 @@
 const Container = {
   padding: '20px',
+  marginBottom: '10px',
   width: '320px',
   flexShrink: '0',
+  background: '#aed581',
+  borderRadius: '4px',
 }
 const Shown = {
   left: '0',
@@ -9,7 +12,7 @@ const Shown = {
 
 }
 const Header = {
-  fontSize: '18px'
+  fontSize: '32px'
 }
 
 export default {
