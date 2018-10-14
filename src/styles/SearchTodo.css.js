@@ -10,9 +10,15 @@ const Input = {
   width: '100%',
   height: '46px',
 }
+const ShowHideCompleted = {
+  border: '1px solid rgba(0, 0, 0, 0.23)',
+  borderRadius: '4px',
+}
+
 
 export default {
   Wrapper,
   Input,
   InputWrapper,
+  ShowHideCompleted,
 }

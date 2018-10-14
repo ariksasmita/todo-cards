@@ -3,16 +3,7 @@ import PropTypes from 'prop-types'
 
 import Icons from './icons/Icons'
 
-// move this to proper css.js file
-const spanStyle = {
-  flexGrow: '2',
-  maxWidth: 'calc(100% - 24px)',
-  color: 'rgba(0, 0, 0, 0.87)',
-}
-const icon = {
-  cursor: 'pointer',
-  color: 'rgba(0, 0, 0, 0.87)',
-}
+import styles from '../styles/NewTodo.css'
 
 class NewTodo extends React.Component {
   static propTypes = {
@@ -35,8 +26,8 @@ class NewTodo extends React.Component {
 
     return (
       <li style={ style } className="card-item_list-item">
-        <span style={ spanStyle }>{text}</span>
-        <Icons.CrossIcon style={ icon } onClick={ deleteItemHandler } />
+        <span style={ styles.SpanStyle }>{ text }</span>
+        <Icons.CrossIcon style={ styles.Icon } onClick={ deleteItemHandler } />
       </li>
     )
   }

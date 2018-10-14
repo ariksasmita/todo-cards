@@ -62,6 +62,7 @@ class AddTodo extends React.Component {
         <div
           style={ {padding: '0 0 0 10px'} }>
           <Button
+            style={ styles.AddButton }
             variant="outlined"
             onClick={ hoistItem }>
             Add

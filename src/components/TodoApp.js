@@ -17,11 +17,6 @@ import Navigation from './Navigation'
 
 import styles from '../styles/TodoApp.css'
 
-const buttonStyle = {
-  padding: '10px',
-  minWidth: '41px',
-}
-
 class TodoApp extends React.Component {
   state = {
     cards: [],
@@ -190,7 +185,7 @@ class TodoApp extends React.Component {
           <div className="top-control-wrapper" style={ styles.TopControlWrapper }>
             <div className="add-card-btn-wrapper">
               <Button
-                style={ buttonStyle }
+                style={ styles.ButtonStyle }
                 variant="outlined"
                 onClick={ toggleAddCard }>
                 { addCardBtnLabel() }

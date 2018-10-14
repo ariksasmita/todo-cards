@@ -15,9 +15,17 @@ const Header = {
   fontSize: '32px',
   marginTop: '15px',
 }
+const StyleButton = {
+  marginRight: '10px',
+  padding: '10px',
+  minWidth: '41px',
+  background: '#fff176',
+}
+
 
 export default {
   Header,
   Container,
   Shown,
+  StyleButton,
 }

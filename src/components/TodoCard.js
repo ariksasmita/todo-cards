@@ -7,13 +7,6 @@ import DeleteIcon from '@material-ui/icons/Delete'
 
 import styles from '../styles/TodoCard.css'
 
-const styleButton = {
-  marginRight: '10px',
-  padding: '10px',
-  minWidth: '41px',
-  background: '#fff176',
-}
-
 class TodoCard extends React.Component {
   static propTypes = {
     card: PropTypes.object,
@@ -67,7 +60,7 @@ class TodoCard extends React.Component {
           onItemChange={ handleItemChange }
           onAddNewTodo={ onAddNewTodo } />
         <Button
-          style={ styleButton }
+          style={ styles.StyleButton }
           variant="outlined"
           onClick={ handleItemDelete }>
           <DeleteIcon />

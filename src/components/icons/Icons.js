@@ -19,7 +19,7 @@ const CrossIcon = (props) => {
 const PlusIcon = (props) => {
   const styles = {...defaultStyle, ...props}
   return (
-    <SvgIcon { styles }>
+    <SvgIcon { ...styles }>
       <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
       <path d="M0 0h24v24H0z" fill="none"/>
     </SvgIcon>

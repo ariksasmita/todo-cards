@@ -6,11 +6,6 @@ import Checkbox from '@material-ui/core/Checkbox'
 
 import styles from '../styles/SearchTodo.css'
 
-const showHideCompleted = {
-  border: '1px solid rgba(0, 0, 0, 0.23)',
-  borderRadius: '4px',
-}
-
 class SearchTodo extends React.Component {
   static propTypes = {
     showCompleted: PropTypes.bool,
@@ -51,7 +46,7 @@ class SearchTodo extends React.Component {
           />
         </div>
         <div
-          style={ showHideCompleted }
+          style={ styles.ShowHideCompleted }
           title="Show completed items" >
           <Checkbox
             color="default"

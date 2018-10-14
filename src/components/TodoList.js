@@ -9,10 +9,6 @@ import Icons from './icons/Icons'
 import styles from '../styles/TodoList.css'
 
 const addButton = {
-  marginRight: '10px',
-  padding: '10px',
-  minWidth: '41px',
-  background: '#fff176',
 }
 
 class TodoList extends React.Component {
@@ -69,7 +65,7 @@ class TodoList extends React.Component {
       <div>
         <div style={ styles.AddItemWrapper }>
           <Button
-            style={ addButton }
+            style={ styles.AddButton }
             variant="outlined"
             onClick={ onAddClick }>
             { addBtnLabel() }

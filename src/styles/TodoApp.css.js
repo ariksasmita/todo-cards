@@ -18,10 +18,16 @@ const TopSectionWrapper = {
   margin: '0 auto 20px',
   background: '#ffeb3b',
 }
+const ButtonStyle = {
+  padding: '10px',
+  minWidth: '41px',
+}
+
 
 export default {
   CardContainer,
   CardWrapper,
   TopControlWrapper,
   TopSectionWrapper,
+  ButtonStyle,
 }
