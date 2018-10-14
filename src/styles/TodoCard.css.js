@@ -3,7 +3,7 @@ const Container = {
   marginBottom: '10px',
   width: '320px',
   flexShrink: '0',
-  background: '#aed581',
+  background: '#FFEB3B',
   borderRadius: '4px',
 }
 const Shown = {
@@ -12,7 +12,8 @@ const Shown = {
 
 }
 const Header = {
-  fontSize: '32px'
+  fontSize: '32px',
+  marginTop: '15px',
 }
 
 export default {

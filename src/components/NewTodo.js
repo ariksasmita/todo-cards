@@ -6,11 +6,12 @@ import Icons from './icons/Icons'
 // move this to proper css.js file
 const spanStyle = {
   flexGrow: '2',
-  textOverflow: 'ellipsis',
   maxWidth: 'calc(100% - 24px)',
+  color: 'rgba(0, 0, 0, 0.87)',
 }
 const icon = {
   cursor: 'pointer',
+  color: 'rgba(0, 0, 0, 0.87)',
 }
 
 class NewTodo extends React.Component {

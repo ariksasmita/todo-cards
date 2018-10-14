@@ -12,6 +12,7 @@ const addButton = {
   marginRight: '10px',
   padding: '10px',
   minWidth: '41px',
+  background: '#fff176',
 }
 
 class TodoList extends React.Component {
@@ -52,7 +53,7 @@ class TodoList extends React.Component {
       onItemChange,
     } = this.props
     const { showAddTodo } = this.state
-    const { 
+    const {
       onAddClick,
       addItem,
       itemStyle,

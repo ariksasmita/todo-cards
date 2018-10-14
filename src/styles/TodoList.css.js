@@ -25,11 +25,11 @@ const ListItemPadded = {
 }
 
 const ItemEven = {
-  background: '#81C784',
+  background: '#fff176',
 }
 
 const ItemOdd = {
-  background: '#009688',
+  background: '#fff59d',
 }
 
 const AddItemWrapper = {

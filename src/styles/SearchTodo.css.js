@@ -8,6 +8,7 @@ const InputWrapper = {
 }
 const Input = {
   width: '100%',
+  height: '46px',
 }
 
 export default {
