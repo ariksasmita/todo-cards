@@ -63,7 +63,7 @@ class TodoApp extends React.Component {
   }
   addNewCard = (card) => {
     const { cards } = this.state
-    cards.push(card)
+    cards.unshift(card)
     this.setState({
       cards,
     })
