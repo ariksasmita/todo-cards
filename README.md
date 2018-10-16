@@ -1,3 +1,5 @@
+![alt text](https://ariksasmita.github.io/todo.png "To-Do Cards")
+
 # To-do Cards
 
 Simple to-do app created with React, as usual, in my attempt to explore the library. Some features:
